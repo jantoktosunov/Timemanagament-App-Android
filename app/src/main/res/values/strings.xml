@@ -7,4 +7,9 @@
     <string name="new_task">New task</string>
     <string name="name">Name</string>
     <string name="date">Date</string>
+    <string-array name="task_arts_array">
+        <item>All tasks</item>
+        <item>Completed tasks</item>
+        <item>Upcoming tasks</item>
+    </string-array>
 </resources>
