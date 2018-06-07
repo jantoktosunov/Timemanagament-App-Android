@@ -7,8 +7,15 @@ import java.util.Date;
  */
 public class Task {
     private String text;
-    private boolean isDone;
+    private boolean isDone = false;
     private Date date;
+    private Urgency urgency;
+    public Task(String text, Date date, Urgency urgency){
+        //isDone = false;
+        this.text = text;
+        this.date = date;
+        this.urgency = urgency;
+    }
     public Task(String text){
         this.text = text;
     }
@@ -38,5 +45,13 @@ public class Task {
 
     public boolean isDone() {
         return isDone;
+    }
+
+    public void setUrgency(Urgency urgency) {
+        this.urgency = urgency;
+    }
+
+    public Urgency getUrgency() {
+        return urgency;
     }
 }
