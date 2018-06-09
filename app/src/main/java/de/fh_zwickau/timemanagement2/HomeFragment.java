@@ -8,22 +8,55 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.Spinner;
-import android.widget.TextView;
+import android.widget.ListView;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 public class HomeFragment extends Fragment {
+    //private static final Task[] tasks = {new Task("DO IT"), new Task("DO IT LATER!"),
+     //                                 new Task("Write text"), new Task("Find this")};
 
-//    @Override
+    //    @Override
 //    public void onCreate(@Nullable Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
 //        Spinner spinner = getView().findViewById(R.id.taskSpinner);
 //        //ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(getActivity(), R.layout.support_simple_spinner_dropdown_item, R.array.task_arts_array);
 //    }
 
+    ArrayList<Task> tasks;
+    ListView listView;
+    private static TaskAdapter adapter;
+
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home, container, false);
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+                             @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_home, container, false);
+        String[] taskStrings = {"1","2","3","4"};
+        listView = view.findViewById(R.id.list_tasks);
+        tasks = new ArrayList<>();
+        tasks.add(new Task("Do It",new Date(),Urgency.DRWG));
+        tasks.add(new Task("Do esadasd",new Date(),Urgency.DRWG));
+        tasks.add(new Task("Do ",new Date(),Urgency.DRWG));
+        tasks.add(new Task("Do It",new Date(),Urgency.DRWG));
+        tasks.add(new Task("Do esadasd",new Date(),Urgency.DRWG));
+        tasks.add(new Task("Do ",new Date(),Urgency.DRWG));
+        tasks.add(new Task("Do It",new Date(),Urgency.DRWG));
+        tasks.add(new Task("Do esadasdasssssssssssssssssssssssss" +
+                "ssssssssssssssssssssssssssssssssssssssssssssssssssssss" +
+                "sssssssssssssssssssssssssssssssssssssssssss" +
+                "ssssssssssssssssssssssssssss",new Date(),Urgency.DRWG));
+        tasks.add(new Task("Do ",new Date(),Urgency.DRWG));
+        tasks.add(new Task("Do It",new Date(),Urgency.DRWG));
+        tasks.add(new Task("Do esadasd",new Date(),Urgency.DRWG));
+        tasks.add(new Task("Do ",new Date(),Urgency.DRWG));
+
+        adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
+        listView.setAdapter(adapter);
+        //listView.setAdapter(new ArrayAdapter<Task>(getActivity(), android.R.layout.simple_list_item_1, tasks));
+
+        return view;
+
     }
 }
