@@ -1,6 +1,8 @@
 package de.fh_zwickau.timemanagement2;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -61,9 +63,11 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.row_item, parent, false);
+            viewHolder.imgUrgency = convertView.findViewById(R.id.urgencyView);
             viewHolder.txtText = convertView.findViewById(R.id.taskText);
             viewHolder.txtDate = convertView.findViewById(R.id.dateText);
-            //viewHolder.imgUrgency = convertView.findViewById()
+
+
             result = convertView;
 
             convertView.setTag(viewHolder);
@@ -73,16 +77,35 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
         }
         Animation animation = AnimationUtils.loadAnimation(mContext,
                 (position > lastPosition)? R.anim.up_from_bottom : R.anim.down_from_top);
-        result.startAnimation(animation);
+        //result.startAnimation(animation);
         lastPosition = position;
 
         viewHolder.txtText.setText(task.getText());
         DateFormat df = new SimpleDateFormat("dd.MM.yyyy");
         String currentDate = df.format(task.getDate());
         viewHolder.txtDate.setText(currentDate);
+        int color = setUrgencyColor(task.getUrgency());
 
-        //viewHolder.imgUrgency.set
+        //viewHolder.imgUrgency.setColorFilter(color, PorterDuff.Mode.MULTIPLY);
+        viewHolder.imgUrgency.setBackgroundColor(color);
         //return super.getView(position, convertView, parent);
         return convertView;
     }
+    private int setUrgencyColor(Urgency urgency){
+        int color = 0;
+        if(urgency.equals(Urgency.DRWG)){
+            color = Color.RED;
+        } else if (urgency.equals(Urgency.DRNWG)){
+            //ORANGE
+            color = Color.parseColor("#ffa500");
+        } else if (urgency.equals(Urgency.NDRWG)){
+            //YELLOW
+            color = Color.parseColor("#eae22a");
+        } else if(urgency.equals(Urgency.NDRNWG)) {
+            color = Color.parseColor("#d0cfbd");
+        }
+
+        return color;
+    }
+
 }

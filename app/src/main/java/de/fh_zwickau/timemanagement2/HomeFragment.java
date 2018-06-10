@@ -36,21 +36,29 @@ public class HomeFragment extends Fragment {
         String[] taskStrings = {"1","2","3","4"};
         listView = view.findViewById(R.id.list_tasks);
         tasks = new ArrayList<>();
-        tasks.add(new Task("Do It",new Date(),Urgency.DRWG));
-        tasks.add(new Task("Do esadasd",new Date(),Urgency.DRWG));
-        tasks.add(new Task("Do ",new Date(),Urgency.DRWG));
-        tasks.add(new Task("Do It",new Date(),Urgency.DRWG));
-        tasks.add(new Task("Do esadasd",new Date(),Urgency.DRWG));
-        tasks.add(new Task("Do ",new Date(),Urgency.DRWG));
-        tasks.add(new Task("Do It",new Date(),Urgency.DRWG));
-        tasks.add(new Task("Do esadasdasssssssssssssssssssssssss" +
-                "ssssssssssssssssssssssssssssssssssssssssssssssssssssss" +
-                "sssssssssssssssssssssssssssssssssssssssssss" +
-                "ssssssssssssssssssssssssssss",new Date(),Urgency.DRWG));
-        tasks.add(new Task("Do ",new Date(),Urgency.DRWG));
-        tasks.add(new Task("Do It",new Date(),Urgency.DRWG));
-        tasks.add(new Task("Do esadasd",new Date(),Urgency.DRWG));
-        tasks.add(new Task("Do ",new Date(),Urgency.DRWG));
+        tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
+        tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
+        tasks.add(new Task("NDRWG",new Date(),Urgency.NDRWG));
+        tasks.add(new Task("NDRNWG",new Date(),Urgency.NDRNWG));
+        tasks.add(new Task("DRNWG",new Date(),Urgency.DRNWG));
+        tasks.add(new Task("DRNWGDRNWGDRNWGDRNWG" +
+                "DRNWGDRNWGDRNWGDRNWGDRNWGDRNWGDRNWGDRNWG" +
+                "DRNWGDRNWGDRNWGDRNWG" +
+                "DRNWGDRNWGDRNWGDRNWGDRNWG" +
+                "DRNWGDRNWGDRNWGDRNWGDRNWG" +
+                "DRNWGDRNWGDRNWGDRNWGDRNWG" +
+                "DRNWGDRNWGDRNWGDRNWGDRNWG",new Date(),Urgency.DRNWG));
+        tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
+        tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
+        tasks.add(new Task("NDRWG",new Date(),Urgency.NDRWG));
+        tasks.add(new Task("NDRNWG",new Date(),Urgency.NDRNWG));
+        tasks.add(new Task("DRNWG",new Date(),Urgency.DRNWG));
+        tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
+        tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
+        tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
+        tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
+
+
 
         adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
         listView.setAdapter(adapter);
