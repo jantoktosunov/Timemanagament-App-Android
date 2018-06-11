@@ -4,7 +4,6 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -35,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         fragments.add(new HomeFragment());
         fragments.add(new LinksFragment());
         fragments.add(new AddFragment());
-        fragments.add(new QuestFragment());
+        fragments.add(new QuestBasicFragment());
         initFragments();
         showFragment(HOME_POSITION);
 //        viewPager = (CustomViewPager) findViewById(R.id.viewPager);
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 //        adapter.addFragment(new HomeFragment(), "homeFragment");
 //        adapter.addFragment(new LinksFragment(), "linksFragment");
 //        adapter.addFragment(new AddFragment(), "addFragment");
-//        adapter.addFragment(new QuestFragment(), "questFragment");
+//        adapter.addFragment(new QuestBasicFragment(), "questFragment");
 //        viewPager.setAdapter(adapter);
 
     }
