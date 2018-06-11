@@ -91,8 +91,14 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
         //return super.getView(position, convertView, parent);
         return convertView;
     }
+
+    /**
+     *
+     * @param urgency
+     * @return
+     */
     private int setUrgencyColor(Urgency urgency){
-        int color = 0;
+        int color = Color.WHITE;
         if(urgency.equals(Urgency.DRWG)){
             color = Color.RED;
         } else if (urgency.equals(Urgency.DRNWG)){
@@ -102,7 +108,7 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
             //YELLOW
             color = Color.parseColor("#eae22a");
         } else if(urgency.equals(Urgency.NDRNWG)) {
-            color = Color.parseColor("#d0cfbd");
+            color = Color.WHITE;
         }
 
         return color;
