@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
     private static final String KEY_QUEST_FRAGMENT = "quest_fragment";
     private ArrayList<Fragment> fragments = new ArrayList<>();
 
+    //private ArrayList<Task> tasks = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -107,5 +109,7 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
+
+
 }
 

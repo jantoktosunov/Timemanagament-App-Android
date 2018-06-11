@@ -1,5 +1,8 @@
 package de.fh_zwickau.timemanagement2;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -7,13 +10,16 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 import java.util.ArrayList;
 import java.util.Date;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment  {
     //private static final Task[] tasks = {new Task("DO IT"), new Task("DO IT LATER!"),
      //                                 new Task("Write text"), new Task("Find this")};
 
@@ -24,21 +30,106 @@ public class HomeFragment extends Fragment {
 //        //ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(getActivity(), R.layout.support_simple_spinner_dropdown_item, R.array.task_arts_array);
 //    }
 
-    ArrayList<Task> tasks;
+    static ArrayList<Task> tasks = new ArrayList<>();
     ListView listView;
     private static TaskAdapter adapter;
 
+    String [] arrayTasks = {"All Tasks", "Completed Tasks", "Upcoming Tasks"};
+
+
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         String[] taskStrings = {"1","2","3","4"};
         listView = view.findViewById(R.id.list_tasks);
-        tasks = new ArrayList<>();
-        tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
-        tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
-        tasks.add(new Task("NDRWG",new Date(),Urgency.NDRWG));
+        //tasks = new ArrayList<>();
+        createTasks();
+        tasks.get(0).setDone(true);
+        tasks.get(1).setDone(true);
+        tasks.get(2).setDone(true);
+        adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
+        listView.setAdapter(adapter);
+        Spinner spinner = view.findViewById(R.id.spinnerT);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                switch (position){
+                    case 0: listView.setAdapter(adapter); break;
+                    case 1:
+                        ArrayList<Task> doneTasks = new ArrayList<>();
+                        for (Task t: tasks) {
+                            if(t.isDone() == true) {
+                                doneTasks.add(t);
+                                TaskAdapter adapterDone = new TaskAdapter(doneTasks,getActivity().getApplicationContext());
+                                listView.setAdapter(adapterDone);
+                            }
+                        }
+                        break;
+                    case 2:
+                        ArrayList<Task> todoTasks = new ArrayList<>();
+                        for (Task t: tasks) {
+                            if(t.isDone() == false) {
+                                todoTasks.add(t);
+                                TaskAdapter adapterFalse = new TaskAdapter(todoTasks,getActivity().getApplicationContext());
+                                listView.setAdapter(adapterFalse);
+                            }
+                        }
+                        break;
+
+                }
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(
+                this.getActivity(), android.R.layout.simple_list_item_1, arrayTasks);
+        spinnerAdapter.setDropDownViewResource(
+                android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerAdapter);
+
+        ImageView imgSort = view.findViewById(R.id.img_sort);
+        imgSort.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //AlertDialog sortDialog = new AlertDialog.Builder(getActivity()).create();
+                AlertDialog.Builder sortDialog = new AlertDialog.Builder(getActivity());
+                String sortString [] = {"Date", "Urgency"};
+                sortDialog.setTitle("Sort");
+                sortDialog.setSingleChoiceItems(sortString, -1, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        if(which == 0){
+                            //TODO Sort
+                        } else if (which == 1) {
+                            //TODO Sort
+                        }
+                    }
+                });
+                sortDialog.show();
+                //alertDialog.setMessage("Alert message to be shown");
+                /*sortDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.dismiss();
+                            }
+                        });
+                sortDialog.show();*/
+            }
+        });
+
+
+        return view;
+
+    }
+    private void createTasks(){
+        tasks.add(new Task("TRUE",new Date(),Urgency.DRWG));
+        tasks.add(new Task("TRUE",new Date(),Urgency.DRWG));
+        tasks.add(new Task("TRUE",new Date(),Urgency.NDRWG));
         tasks.add(new Task("NDRNWG",new Date(),Urgency.NDRNWG));
         tasks.add(new Task("DRNWG",new Date(),Urgency.DRNWG));
         tasks.add(new Task("DRNWGDRNWGDRNWGDRNWG" +
@@ -57,14 +148,5 @@ public class HomeFragment extends Fragment {
         tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
         tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
         tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
-
-
-
-        adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
-        listView.setAdapter(adapter);
-        //listView.setAdapter(new ArrayAdapter<Task>(getActivity(), android.R.layout.simple_list_item_1, tasks));
-
-        return view;
-
     }
 }
