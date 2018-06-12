@@ -69,6 +69,7 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
             viewHolder.txtDate = convertView.findViewById(R.id.dateText);
             viewHolder.imgDone = convertView.findViewById(R.id.imgDone);
 
+
             result = convertView;
 
             convertView.setTag(viewHolder);
@@ -88,6 +89,9 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
         int color = setUrgencyColor(task.getUrgency());
         viewHolder.imgUrgency.setBackgroundColor(color);
         viewHolder.imgDone = convertView.findViewById(R.id.imgDone);
+        if(task.isDone()){
+            viewHolder.imgDone.setBackgroundResource(R.drawable.ic_done_green_24dp);
+        }
         return convertView;
     }
 
