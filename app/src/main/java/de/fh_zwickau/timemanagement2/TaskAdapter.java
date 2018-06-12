@@ -29,6 +29,7 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
         TextView txtText;
         TextView txtDate;
         ImageView imgUrgency;
+        ImageView imgDone;
     }
 
     public TaskAdapter(ArrayList<Task> tasks, @NonNull Context context) {
@@ -66,7 +67,7 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
             viewHolder.imgUrgency = convertView.findViewById(R.id.urgencyView);
             viewHolder.txtText = convertView.findViewById(R.id.taskText);
             viewHolder.txtDate = convertView.findViewById(R.id.dateText);
-
+            viewHolder.imgDone = convertView.findViewById(R.id.imgDone);
 
             result = convertView;
 
@@ -75,8 +76,8 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
             viewHolder = (ViewHolder) convertView.getTag();
             result = convertView;
         }
-        Animation animation = AnimationUtils.loadAnimation(mContext,
-                (position > lastPosition)? R.anim.up_from_bottom : R.anim.down_from_top);
+//        Animation animation = AnimationUtils.loadAnimation(mContext,
+//                (position > lastPosition)? R.anim.up_from_bottom : R.anim.down_from_top);
         //result.startAnimation(animation);
         lastPosition = position;
 
@@ -85,10 +86,8 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
         String currentDate = df.format(task.getDate());
         viewHolder.txtDate.setText(currentDate);
         int color = setUrgencyColor(task.getUrgency());
-
-        //viewHolder.imgUrgency.setColorFilter(color, PorterDuff.Mode.MULTIPLY);
         viewHolder.imgUrgency.setBackgroundColor(color);
-        //return super.getView(position, convertView, parent);
+        viewHolder.imgDone = convertView.findViewById(R.id.imgDone);
         return convertView;
     }
 

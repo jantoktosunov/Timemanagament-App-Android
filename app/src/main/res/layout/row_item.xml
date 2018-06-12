@@ -7,39 +7,29 @@
 
     <TextView
         android:id="@+id/taskText"
-        android:layout_width="0dp"
-        android:layout_height="78dp"
-        android:layout_marginBottom="7dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="7dp"
+        android:layout_width="237dp"
+        android:layout_height="71dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginStart="16dp"
         android:text="TaskText"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="@android:color/black"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
        <!--android:gravity="center"-->
 
     <TextView
         android:id="@+id/dateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginStart="320dp"
+        android:layout_width="75dp"
+        android:layout_height="20dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:text="09.06.2018"
         android:textAppearance="?android:attr/textAppearanceButton"
         android:textColor="#800000"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.515" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/urgencyView"
@@ -52,7 +42,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/imgDone"
+        android:layout_width="56dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="28dp"
+
+        android:layout_marginEnd="36dp"
+        android:layout_marginStart="86dp"
+        android:background="@drawable/ic_done_ghost_24dp"
+        android:contentDescription="null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toEndOf="@+id/taskText" />
 
 
 </android.support.constraint.ConstraintLayout>
