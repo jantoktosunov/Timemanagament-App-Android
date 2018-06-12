@@ -9,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.text.DecimalFormat;
-
 public class QuestEndFragment extends Fragment {
     private static final String QUEST_BASIC_FRAGMENT_KEY = "quest_basic_fragment_key";
     private View questEndView;
@@ -29,15 +27,34 @@ public class QuestEndFragment extends Fragment {
         QuestBasicFragment questBasicFragment =
                 (QuestBasicFragment) getArguments().getSerializable(QUEST_BASIC_FRAGMENT_KEY);
         TextView scoreView = questEndView.findViewById(R.id.txt_quest_end_final_score);
+        TextView shortScoreView = questEndView.findViewById(R.id.txt_quest_end_factor1_score);
+        TextView attitudesScoreView = questEndView.findViewById(R.id.txt_quest_end_factor2_score);
+        TextView longScoreView = questEndView.findViewById(R.id.txt_quest_end_factor3_score);
         double finalScore = questBasicFragment.calculateFinalScore();
-        String scoreString;
-        if (finalScore % finalScore == 0) {
-            scoreString = String.format("%.0f", finalScore);
-        } else {
-            scoreString = String.format("%.2f", finalScore);
-        }
+        String scoreString = getFormatedScore(finalScore);
         scoreView.setText(scoreString + "%");
+
+        double shortRangeScore = questBasicFragment.calculateTypeFinalScore(QuestionType.SHORT_RANGE_PLANNING);
+        String shortScore = getFormatedScore(shortRangeScore);
+        shortScoreView.setText(shortScore + "%");
+
+        double attitudesScore = questBasicFragment.calculateTypeFinalScore(QuestionType.TIME_ATTITUDES);
+        String attScore = getFormatedScore(attitudesScore);
+        attitudesScoreView.setText(attScore + "%");
+
+        double longRangeScore = questBasicFragment.calculateTypeFinalScore(QuestionType.LONG_RANGE_PLANNING);
+        String longScore = getFormatedScore(longRangeScore);
+        longScoreView.setText(longScore + "%");
         return questEndView;
+    }
+    private String getFormatedScore(double score) {
+        String scoreString;
+        if (score % 1 == 0) {
+            scoreString = String.format("%.0f", score);
+        } else {
+            scoreString = String.format("%.2f", score);
+        }
+        return scoreString;
     }
 
 }

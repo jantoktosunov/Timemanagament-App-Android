@@ -13,7 +13,11 @@
         In scoring, 5 points were assigned to the response at the end of the scale that we defined a priori as the "good" practice and 1 point was assigned to the response at the other end of the scale, with intermediate values given for the other responses.
         Higher values on the scale correspond to better timemanagement practices.</string>
     <string name="final_score">Final score</string>
-    <string name="your_score">Your score:</string>
+    <string name="total_score">Total score:</string>
+    <string name="short_range_planning_score">Short-Range Planning score:</string>
+    <string name="time_attitudes_score">Time Attitudes score:</string>
+    <string name="long_range_planning_score">Long-Range Planning score:</string>
+
     <string name="quest_1">Do you make a list of the things you have to do each day?</string>
     <string name="quest_2">Do you plan your day before you start it?</string>
     <string name="quest_3">Do you make a schedule of the activities you have to do on work days?</string>
