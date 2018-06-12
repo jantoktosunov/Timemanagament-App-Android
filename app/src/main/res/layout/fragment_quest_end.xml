@@ -20,20 +20,19 @@
         android:id="@+id/txt_quest_end_final_score"
         android:layout_width="80dp"
         android:layout_height="58dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="31dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="36dp"
         android:text=""
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/your_score_txt_v"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quest_end_txt_header" />
-
 
 
     <TextView
         android:id="@+id/your_score_txt_v"
         android:layout_width="106dp"
         android:layout_height="70dp"
-        android:layout_marginStart="108dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="36dp"
         android:text="@string/total_score"
         android:textSize="20sp"
@@ -45,7 +44,7 @@
         android:layout_width="262dp"
         android:layout_height="70dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="68dp"
         android:text="@string/short_range_planning_score"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,11 +54,11 @@
         android:id="@+id/txt_quest_end_factor1_score"
         android:layout_width="80dp"
         android:layout_height="58dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="80dp"
         android:text=""
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/factor_1"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_quest_end_final_score" />
 
 
@@ -67,8 +66,8 @@
         android:id="@+id/factor_2"
         android:layout_width="200dp"
         android:layout_height="70dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
         android:text="@string/time_attitudes_score"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -79,19 +78,19 @@
         android:id="@+id/txt_quest_end_factor2_score"
         android:layout_width="80dp"
         android:layout_height="58dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="40dp"
         android:text=""
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/factor_2"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_quest_end_factor1_score" />
 
     <TextView
         android:id="@+id/factor_3"
         android:layout_width="257dp"
         android:layout_height="70dp"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
         android:text="@string/long_range_planning_score"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -101,12 +100,11 @@
         android:id="@+id/txt_quest_end_factor3_score"
         android:layout_width="80dp"
         android:layout_height="58dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="44dp"
         android:text=""
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/factor_3"
         app:layout_constraintTop_toBottomOf="@+id/txt_quest_end_factor2_score" />
 
     <ImageView

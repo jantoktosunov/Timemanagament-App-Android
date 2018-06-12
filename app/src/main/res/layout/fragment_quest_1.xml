@@ -42,51 +42,56 @@
 
     <RadioGroup
         android:id="@+id/radio_group_quest"
-        android:layout_width="122dp"
+        android:layout_width="147dp"
         android:layout_height="315dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="40dp"
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.133"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quest1_txt">
 
         <RadioButton
             android:id="@+id/radioButton_1"
-            android:layout_width="108dp"
+            android:layout_width="147dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="never" />
+            android:text="never"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioButton_2"
-            android:layout_width="108dp"
+            android:layout_width="147dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="infrequently" />
+            android:text="infrequently"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioButton_3"
-            android:layout_width="108dp"
+            android:layout_width="147dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:checked="true"
-            android:text="sometimes" />
+            android:text="sometimes"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioButton_4"
-            android:layout_width="108dp"
+            android:layout_width="147dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="frequently" />
+            android:text="frequently"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioButton_5"
-            android:layout_width="108dp"
+            android:layout_width="147dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="always" />
+            android:text="always"
+            android:textSize="20sp" />
 
     </RadioGroup>
 
