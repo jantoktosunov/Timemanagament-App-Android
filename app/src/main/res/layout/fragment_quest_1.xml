@@ -90,4 +90,14 @@
 
     </RadioGroup>
 
+    <ImageView
+        android:id="@+id/imgViewClose"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close_black_24dp" />
+
 </android.support.constraint.ConstraintLayout>

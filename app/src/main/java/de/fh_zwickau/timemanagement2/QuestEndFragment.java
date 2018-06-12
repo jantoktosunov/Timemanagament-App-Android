@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class QuestEndFragment extends Fragment {
@@ -24,7 +25,7 @@ public class QuestEndFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         questEndView = inflater.inflate(R.layout.fragment_quest_end, container, false);
-        QuestBasicFragment questBasicFragment =
+        final QuestBasicFragment questBasicFragment =
                 (QuestBasicFragment) getArguments().getSerializable(QUEST_BASIC_FRAGMENT_KEY);
         TextView scoreView = questEndView.findViewById(R.id.txt_quest_end_final_score);
         TextView shortScoreView = questEndView.findViewById(R.id.txt_quest_end_factor1_score);
@@ -45,6 +46,15 @@ public class QuestEndFragment extends Fragment {
         double longRangeScore = questBasicFragment.calculateTypeFinalScore(QuestionType.LONG_RANGE_PLANNING);
         String longScore = getFormatedScore(longRangeScore);
         longScoreView.setText(longScore + "%");
+        ImageView cancelView = questEndView.findViewById(R.id.imgViewAgain);
+        cancelView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                questBasicFragment.reset();
+                questBasicFragment.removeEndFragment(QuestEndFragment.this);
+                questBasicFragment.showFragment(0);
+            }
+        });
         return questEndView;
     }
     private String getFormatedScore(double score) {

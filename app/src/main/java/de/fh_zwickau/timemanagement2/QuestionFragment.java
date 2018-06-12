@@ -53,9 +53,9 @@ public class QuestionFragment extends Fragment implements Serializable {
         headerTxtView.setText("Question " + position + "/" + questBasicFragment.getNumberOfQuestions());
         TextView questTxtView = questView.findViewById(R.id.quest1_txt);
         questTxtView.setText(getArguments().getString(QUESTION_TEXT_KEY));
-        ImageView imgView = questView.findViewById(R.id.imgViewNext1);
+        ImageView imgViewNext = questView.findViewById(R.id.imgViewNext1);
         radioGroup = questView.findViewById(R.id.radio_group_quest);
-        imgView.setOnClickListener(new View.OnClickListener() {
+        imgViewNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 sendAnswer();
@@ -64,7 +64,14 @@ public class QuestionFragment extends Fragment implements Serializable {
                 questBasicFragment.showFragment(position + 1);
             }
         });
-
+        ImageView imgViewClose = questView.findViewById(R.id.imgViewClose);
+        imgViewClose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                questBasicFragment.reset();
+                questBasicFragment.showFragment(0);
+            }
+        });
         return questView;
     }
     private void reverseRButtons() {

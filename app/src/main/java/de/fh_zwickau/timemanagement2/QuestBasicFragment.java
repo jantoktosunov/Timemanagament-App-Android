@@ -32,7 +32,6 @@ public class QuestBasicFragment extends Fragment implements Serializable {
         longRangeNumber = 0;
         createFragments();
         addFragments();
-        //setNumberOfTypeQuestions();
         showFragment(0);
         return questBasicView;
     }
@@ -50,6 +49,7 @@ public class QuestBasicFragment extends Fragment implements Serializable {
                 .newInstance(textQuestion_2, 2, true, QuestionType.TIME_ATTITUDES,this);
         QuestionFragment questionFgt_3 = QuestionFragment
                 .newInstance(textQuestion_3, 3, true, QuestionType.LONG_RANGE_PLANNING, this);
+
         fragments.add(0, questStartFragment);
         fragments.add(1, questionFgt_1);
         fragments.add(2, questionFgt_2);
@@ -106,20 +106,6 @@ public class QuestBasicFragment extends Fragment implements Serializable {
         fragments.add(questEndFragment);
         getChildFragmentManager().beginTransaction().add(R.id.frag_cont_quest, questEndFragment).commit();
     }
-    private void setNumberOfTypeQuestions() {
-        for (int i = 1; i<fragments.size(); i++) {
-            QuestionFragment fragment = (QuestionFragment) fragments.get(i);
-            if (fragment.getQuestionType().equals(QuestionType.SHORT_RANGE_PLANNING)) {
-                shortRangeNumber++;
-                System.out.println("SHORT RANGE NUMBER ====================== shortRangeNumber");
-            } else if (fragment.getQuestionType().equals(QuestionType.TIME_ATTITUDES)) {
-                attitudesNumber++;
-            } else if (fragment.getQuestionType().equals(QuestionType.LONG_RANGE_PLANNING)) {
-                longRangeNumber++;
-            }
-            System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-        }
-    }
     public void addTypeNumber(QuestionType type) {
         if (type == QuestionType.SHORT_RANGE_PLANNING) {
             shortRangeNumber++;
@@ -128,6 +114,19 @@ public class QuestBasicFragment extends Fragment implements Serializable {
         } else if (type == QuestionType.LONG_RANGE_PLANNING) {
             longRangeNumber++;
         }
+    }
+    public void reset() {
+        overallScore = 0;
+        shortRangeNumber = 0;
+        shortRangeScore = 0;
+        attitudesNumber = 0;
+        attitudesScore = 0;
+        longRangeNumber = 0;
+        longRangeScore = 0;
+    }
+    public void removeEndFragment(QuestEndFragment endFragment) {
+        fragments.remove(endFragment);
+        getChildFragmentManager().beginTransaction().remove(endFragment).commit();
     }
 
 }
