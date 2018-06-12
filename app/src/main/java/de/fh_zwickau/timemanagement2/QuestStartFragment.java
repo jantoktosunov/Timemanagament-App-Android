@@ -10,10 +10,12 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 public class QuestStartFragment extends Fragment {
+    private static final String QUEST_BASIC_FRAGMENT_KEY = "quest_basic_fragment_key";
+    private static final String FIRTS_QUESTION_FRAGMENT_KEY = "first_question_fragment_key";
     public static QuestStartFragment newInstance(QuestBasicFragment questBasicFragment) {
         QuestStartFragment questStartFragment = new QuestStartFragment();
         Bundle args = new Bundle();
-        args.putSerializable("A", questBasicFragment);
+        args.putSerializable(QUEST_BASIC_FRAGMENT_KEY, questBasicFragment);
         questStartFragment.setArguments(args);
         return questStartFragment;
     }
@@ -33,8 +35,9 @@ public class QuestStartFragment extends Fragment {
 //                        .commit();
 //                getChildFragmentManager().beginTransaction().show(questionFragment);
                 //getChildFragmentManager().beginTransaction().hide()
-                QuestBasicFragment questBasicFragment = (QuestBasicFragment) getArguments().getSerializable("A");
-                questBasicFragment.showFragment();
+                QuestBasicFragment questBasicFragment = (QuestBasicFragment) getArguments()
+                        .getSerializable(QUEST_BASIC_FRAGMENT_KEY);
+                questBasicFragment.showFragment(1);
             }
         });
         return questView;
