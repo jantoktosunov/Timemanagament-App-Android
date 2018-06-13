@@ -102,8 +102,7 @@ public class HomeFragment extends Fragment  {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Task task = tasks.get(position);
-                Snackbar.make(view, task.getText(), Snackbar.LENGTH_LONG)
-                        .setAction("No action", null).show();
+
                 //TODO transition to EditTaskFragment
             }
         });

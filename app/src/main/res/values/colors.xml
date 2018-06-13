@@ -8,4 +8,5 @@
     <color name="orange_urgency">#ffa500</color>
     <color name="yellow_urgency">#eae22a</color>
     <color name="white_urgency">#FFFFFF</color>
+    <color name="date_color">#b30000</color>
 </resources>

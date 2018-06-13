@@ -2,10 +2,12 @@ package de.fh_zwickau.timemanagement2;
 
 import android.app.DatePickerDialog;
 import android.app.DialogFragment;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +22,6 @@ import java.util.Date;
 import java.util.Locale;
 
 public class AddFragment extends Fragment implements Serializable, DatePickerDialog.OnDateSetListener {
-
 
     private transient ImageView doneImg;
     private transient TextView taskText;
@@ -89,5 +90,6 @@ public class AddFragment extends Fragment implements Serializable, DatePickerDia
         taskDate = calendar.getTime();
         String mon = calendar.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.getDefault());
         dateText.setText(dayOfMonth + " " + mon);
+        dateText.setTextColor(ContextCompat.getColor(getContext(), R.color.date_color));
     }
 }

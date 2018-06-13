@@ -93,13 +93,13 @@ public class QuestionFragment extends Fragment implements Serializable {
     private void sendAnswer() {
         int selectedId = radioGroup.getCheckedRadioButtonId();
         if (selectedId == R.id.radioButton_1) {
-            questBasicFragment.sendAnswer(20, questionType);
+            questBasicFragment.sendAnswer(0, questionType);
         } else if (selectedId == R.id.radioButton_2) {
-            questBasicFragment.sendAnswer(40, questionType);
+            questBasicFragment.sendAnswer(25, questionType);
         } else if (selectedId == R.id.radioButton_3) {
-            questBasicFragment.sendAnswer(60, questionType);
+            questBasicFragment.sendAnswer(50, questionType);
         } else if (selectedId == R.id.radioButton_4) {
-            questBasicFragment.sendAnswer(80, questionType);
+            questBasicFragment.sendAnswer(75, questionType);
         } else if (selectedId == R.id.radioButton_5) {
             questBasicFragment.sendAnswer(100, questionType);
         }

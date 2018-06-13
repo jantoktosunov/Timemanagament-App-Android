@@ -5,13 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ImageView
-        android:id="@+id/imageView6e"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:background="@color/white_urgency"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
         android:id="@+id/textViewe"
@@ -21,8 +14,9 @@
         android:gravity="center"
         android:text="@string/edit_task"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/edit_txt_text"
@@ -32,7 +26,6 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="@string/name"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewe" />
@@ -59,16 +52,17 @@
         app:layout_constraintTop_toBottomOf="@+id/edit_txt_text" />
 
     <ImageView
-        android:id="@+id/edit_img_done"
-        android:layout_width="60dp"
-        android:layout_height="61dp"
-        android:layout_marginTop="3dp"
+        android:id="@+id/edit_img_close"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp" />
+        app:srcCompat="@drawable/ic_close_black_24dp" />
 
     <ImageView
-        android:id="@+id/edit_img_done2"
+        android:id="@+id/edit_img_done"
         android:layout_width="44dp"
         android:layout_height="41dp"
         android:layout_marginEnd="16dp"
@@ -91,7 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:checked="true"
+            android:checked="false"
             android:text="@string/urg_ui"
             android:textSize="20sp" />
 
@@ -146,8 +140,8 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:background="@color/yellow_urgency"
-        app:layout_constraintTop_toBottomOf="@+id/imageView5e"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5e" />
 
     <ImageView
         android:id="@+id/imageView5e"
@@ -158,5 +152,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3e"
         app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView6e"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@color/white_urgency"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4e" />
 
 </android.support.constraint.ConstraintLayout>
