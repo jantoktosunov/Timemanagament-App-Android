@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -90,14 +89,14 @@ public class MainActivity extends AppCompatActivity {
         tasks.add(task);
     }
     private void createTasks() {
-        tasks.add(new Task("TRUE",new Date(),Urgency.DRWG));
-        tasks.add(new Task("TRUE",new Date(),Urgency.DRWG));
-        tasks.add(new Task("TRUE",new Date(),Urgency.NDRWG));
-        tasks.add(new Task("1",new Date(),Urgency.NDRNWG));
-        tasks.add(new Task("2",new Date(),Urgency.NDRNWG));
-        tasks.add(new Task("3",new Date(),Urgency.NDRNWG));
-        tasks.add(new Task("4",new Date(),Urgency.NDRNWG));
-        tasks.add(new Task("5",new Date(),Urgency.DRNWG));
+        tasks.add(new Task("TRUE",new Date(),Urgency.UI));
+        tasks.add(new Task("TRUE",new Date(),Urgency.UI));
+        tasks.add(new Task("TRUE",new Date(),Urgency.NUI));
+        tasks.add(new Task("1",new Date(),Urgency.NUNI));
+        tasks.add(new Task("2",new Date(),Urgency.NUNI));
+        tasks.add(new Task("3",new Date(),Urgency.NUNI));
+        tasks.add(new Task("4",new Date(),Urgency.NUNI));
+        tasks.add(new Task("5",new Date(),Urgency.UNI));
     }
 }
 

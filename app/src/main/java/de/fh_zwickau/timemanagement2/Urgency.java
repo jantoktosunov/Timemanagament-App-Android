@@ -4,8 +4,8 @@ package de.fh_zwickau.timemanagement2;
  *
  */
 public enum Urgency {
-    DRWG, // Dringend & Wichtig
-    NDRWG, //Nicht dringlich & Wichtig
-    DRNWG, //Dringend & Nicht wichtig
-    NDRNWG //Nicht dringlich & Nicht wichtig
+    UI, // Urgent & Important
+    NUI, //Not Urgent & Important
+    UNI, //Urgent & Not important
+    NUNI //Not Urgent & Not Important
 }

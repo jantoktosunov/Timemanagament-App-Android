@@ -2,15 +2,12 @@ package de.fh_zwickau.timemanagement2;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -113,16 +110,16 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
      */
     private int setUrgencyColor(Urgency urgency){
         int color = Color.WHITE;
-        if(urgency.equals(Urgency.DRWG)){
+        if(urgency.equals(Urgency.UI)){
             //RED
             color = Color.parseColor("#FF0000");
-        } else if (urgency.equals(Urgency.DRNWG)){
+        } else if (urgency.equals(Urgency.UNI)){
             //ORANGE
             color = Color.parseColor("#ffa500");
-        } else if (urgency.equals(Urgency.NDRWG)){
+        } else if (urgency.equals(Urgency.NUI)){
             //YELLOW
             color = Color.parseColor("#eae22a");
-        } else if(urgency.equals(Urgency.NDRNWG)) {
+        } else if(urgency.equals(Urgency.NUNI)) {
             //RED
             color = Color.parseColor("#FFFFFF");
         }

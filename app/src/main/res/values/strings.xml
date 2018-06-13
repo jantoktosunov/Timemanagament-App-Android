@@ -9,6 +9,11 @@
     <string name="date">Date</string>
     <string name="Start_questionnaire">Start questionnaire</string>
 
+    <string name="urg_ui">Urgent &amp; Important</string>
+    <string name="urg_nui">Not Urgent &amp; Important</string>
+    <string name="urg_uni">Urgent &amp; Not important</string>
+    <string name="urg_nuni">Not Urgent &amp; Not Important</string>
+
     <string name="TMQ_info">This Time-Management Questionnaire will help you to know how you are prepared for the realities of a modern busy world. The questionnaire consists of 18 questions, which are divided into three types: Short-Range Planning, Time Attitudes and Long-Range Planning. </string>
     <string name="final_score">Final score</string>
     <string name="total_score">Total score:</string>

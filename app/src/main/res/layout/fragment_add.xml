@@ -85,7 +85,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:checked="true"
-            android:text="Dringend und Wichtig"
+            android:text="@string/urg_ui"
             android:textSize="20sp" />
 
         <RadioButton
@@ -93,24 +93,24 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Dringend und nicht wichtig"
-            android:textSize="20sp"/>
+            android:text="@string/urg_uni"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/add_rdb_ndrwg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Nicht dringlich und wichtig"
-            android:textSize="20sp"/>
+            android:text="@string/urg_nuni"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/add_rdb_ndrnwg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Nicht dringlich und wichtig"
-            android:textSize="20sp"/>
+            android:text="@string/urg_nuni"
+            android:textSize="20sp" />
     </RadioGroup>
 
     <TextView

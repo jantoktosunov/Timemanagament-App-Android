@@ -11,7 +11,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -46,7 +45,7 @@ public class AddFragment extends Fragment implements Serializable, DatePickerDia
             public void onClick(View v) {
                 String text = getTaskText().getText().toString();
 
-                MainActivity.addTask(new Task(text, taskDate, Urgency.DRWG));
+                MainActivity.addTask(new Task(text, taskDate, Urgency.UI));
 
                 //TODO Transition from AddFragment to HomeFragment OR?
 
