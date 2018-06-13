@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.io.Serializable;
@@ -25,6 +26,7 @@ public class AddFragment extends Fragment implements Serializable, DatePickerDia
     private transient TextView taskText;
     private transient ImageView dateImg;
     private transient TextView dateText;
+    private transient RadioGroup radioGroup;
     private Date taskDate;
     public static AddFragment newInstance() {
         AddFragment addFragment = new AddFragment();
@@ -40,6 +42,7 @@ public class AddFragment extends Fragment implements Serializable, DatePickerDia
         taskText = view.findViewById(R.id.add_txt_text);
         dateText = view.findViewById(R.id.add_txt_date);
         doneImg = view.findViewById(R.id.add_img_done);
+        radioGroup = view.findViewById(R.id.add_radio_group);
         doneImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
