@@ -43,5 +43,10 @@
         <item>Upcoming tasks</item>
     </string-array>
     <string name="links_about">Links that will help you to Improve Your Time Management Skills.</string>
-    <string name="link1_string"><a href="http://www.google.com">Google</a></string>
+    <string name="link4_string"><a href="http://www.google.com">Google</a></string>
+    <string name="link2_string">
+        <a href="https://www.lifehack.org/articles/productivity/10-ways-improve-your-time-management-skills.html">10 Practical Ways to Improve Your Time Management Skills</a></string>
+    <string name="link3_string"><a href="https://www.smartsheet.com/all-about-time-management">All About Time Management</a></string>
+    <string name="link1_string"><a href="https://www.researchgate.net/profile/Abraham_Tesser/publication/232573913_Effects_of_Time-Management_Practices_on_College_Grades/links/0046353545613de89d000000/Effects-of-Time-Management-Practices-on-College-Grades.pdf">Effects of Time-Management Practices on College Grades
+</a></string>
 </resources>

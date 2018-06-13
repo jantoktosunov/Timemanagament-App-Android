@@ -20,6 +20,10 @@ public class LinksFragment extends Fragment implements Serializable {
         View view = inflater.inflate(R.layout.fragment_links, container, false);
         TextView link1 = view.findViewById(R.id.link1);
         link1.setMovementMethod(LinkMovementMethod.getInstance());
+        TextView link2 = view.findViewById(R.id.link2);
+        link2.setMovementMethod(LinkMovementMethod.getInstance());
+        TextView link3 = view.findViewById(R.id.link3);
+        link3.setMovementMethod(LinkMovementMethod.getInstance());
         return view;
     }
 }
