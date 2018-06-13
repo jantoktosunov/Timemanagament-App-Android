@@ -43,15 +43,26 @@ public class AddFragment extends Fragment implements Serializable, DatePickerDia
         dateText = view.findViewById(R.id.add_txt_date);
         doneImg = view.findViewById(R.id.add_img_done);
         radioGroup = view.findViewById(R.id.add_radio_group);
+        taskDate = null;
         doneImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String text = getTaskText().getText().toString();
-
-                MainActivity.addTask(new Task(text, taskDate, Urgency.UI));
-
-                //TODO Transition from AddFragment to HomeFragment OR?
-
+                int selectedId = radioGroup.getCheckedRadioButtonId();
+                Urgency urgency = null;
+                if (selectedId == R.id.add_rdb_ui) {
+                    urgency = Urgency.UI;
+                } else if (selectedId == R.id.add_rdb_uni) {
+                    urgency = Urgency.UNI;
+                } else if (selectedId == R.id.add_rdb_nui) {
+                    urgency = Urgency.NUI;
+                } else if (selectedId == R.id.add_rdb_nuni) {
+                    urgency = Urgency.NUNI;
+                }
+                if (taskDate != null) {
+                    MainActivity.addTask(new Task(text, taskDate, urgency));
+                    MainActivity.goToHome();
+                }
             }
         });
         dateImg = view.findViewById(R.id.add_img_calendar);

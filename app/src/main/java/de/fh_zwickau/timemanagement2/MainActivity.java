@@ -20,15 +20,16 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Fragment> fragments = new ArrayList<>();
     private static ArrayList<Task> tasks = new ArrayList<>();
-
+    private static BottomNavigationView bottomNav;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav = findViewById(R.id.bottom_navigation);
         BottomNavigationViewHelper.disableShiftMode(bottomNav);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
+
         //fragments.add(new HomeFragment());
         fragments.add(HomeContainerFragment.newInstance());
         fragments.add(new LinksFragment());
@@ -38,7 +39,9 @@ public class MainActivity extends AppCompatActivity {
         showFragment(HOME_POSITION);
         createTasks();
     }
-
+    public static void goToHome() {
+        bottomNav.setSelectedItemId(R.id.nav_home);
+    }
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
