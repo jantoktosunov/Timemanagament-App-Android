@@ -9,9 +9,7 @@
     <string name="date">Date</string>
     <string name="Start_questionnaire">Start questionnaire</string>
 
-    <string name="TMQ_info">The time-management questionnaire included 35 items, each answered on a 5-point scale consisting of the responses always, frequently, sometimes, infrequently, and never).
-        In scoring, 5 points were assigned to the response at the end of the scale that we defined a priori as the "good" practice and 1 point was assigned to the response at the other end of the scale, with intermediate values given for the other responses.
-        Higher values on the scale correspond to better timemanagement practices.</string>
+    <string name="TMQ_info">This Time-Management Questionnaire will help you to know how you are prepared for the realities of a modern busy world. The questionnaire consists of 18 questions, which are divided into three types: Short-Range Planning, Time Attitudes and Long-Range Planning. </string>
     <string name="final_score">Final score</string>
     <string name="total_score">Total score:</string>
     <string name="short_range_planning_score">Short-Range Planning score:</string>
