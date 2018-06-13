@@ -9,10 +9,9 @@
         android:id="@+id/imageView6"
         android:layout_width="32dp"
         android:layout_height="32dp"
-        android:layout_marginTop="64dp"
         android:background="@color/white_urgency"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <TextView
         android:id="@+id/textView"
@@ -56,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="28dp"
         android:text="@string/date"
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/add_img_calendar"
@@ -85,6 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:checked="true"
             android:text="Dringend und Wichtig"
             android:textSize="20sp" />
 
@@ -129,7 +129,7 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
 
-        android:layout_marginTop="211dp"
+        android:layout_marginTop="232dp"
         android:background="@color/red_urgency"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -147,8 +147,11 @@
         android:id="@+id/imageView5"
         android:layout_width="32dp"
         android:layout_height="32dp"
+        android:layout_marginTop="8dp"
         android:background="@color/orange_urgency"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>
