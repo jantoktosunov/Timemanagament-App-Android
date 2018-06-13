@@ -18,6 +18,8 @@ import android.widget.ListView;
 import android.widget.Spinner;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 
 public class HomeFragment extends Fragment  {
@@ -51,8 +53,7 @@ public class HomeFragment extends Fragment  {
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         listView = view.findViewById(R.id.list_tasks);
-        //tasks = new ArrayList<>();
-        createTasks();
+
         tasks = MainActivity.getTasks();
         adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
         listView.setAdapter(adapter);
@@ -103,6 +104,7 @@ public class HomeFragment extends Fragment  {
                 Task task = tasks.get(position);
                 Snackbar.make(view, task.getText(), Snackbar.LENGTH_LONG)
                         .setAction("No action", null).show();
+                //TODO transition to EditTaskFragment
             }
         });
 
@@ -121,6 +123,14 @@ public class HomeFragment extends Fragment  {
                             //TODO Sort
                         } else if (which == 1) {
                             //TODO Sort
+//                            Collections.sort(tasks, new Comparator<Task>() {
+//                                @Override
+//                                public int compare(Task t1, Task t2) {
+//                                    if(t1.getUrgency() == t2.getUrgency())
+//                                    return 0;
+//                                }
+//                            });
+                           // Collections.sort(tasks, Urgency.getBy);
                         }
                     }
                 });
@@ -136,15 +146,7 @@ public class HomeFragment extends Fragment  {
             }
         });
 
-
         return view;
-
     }
-    private void createTasks(){
 
-        //tasks.get(0).setDone(true);
-        //tasks.get(1).setDone(true);
-        //tasks.get(2).setDone(true);
-
-    }
 }

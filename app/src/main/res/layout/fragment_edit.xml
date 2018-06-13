@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView6e"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@color/white_urgency"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+    <TextView
+        android:id="@+id/textViewe"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@drawable/header_rectangle"
+        android:gravity="center"
+        android:text="@string/edit_task"
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <EditText
+        android:id="@+id/edit_txt_text"
+        android:layout_width="347dp"
+        android:layout_height="53dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/name"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewe" />
+
+    <ImageView
+        android:id="@+id/edit_img_calendar"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_calendar_24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_txt_text" />
+
+    <TextView
+        android:id="@+id/edit_txt_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/date"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toStartOf="@+id/edit_img_calendar"
+        app:layout_constraintTop_toBottomOf="@+id/edit_txt_text" />
+
+    <ImageView
+        android:id="@+id/edit_img_done"
+        android:layout_width="60dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="3dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_keyboard_arrow_left_black_24dp" />
+
+    <ImageView
+        android:id="@+id/edit_img_done2"
+        android:layout_width="44dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_done_black_24dp" />
+
+    <RadioGroup
+        android:id="@+id/edit_radio_group"
+        android:layout_width="362dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2e">
+
+        <RadioButton
+            android:id="@+id/edit_rdb_ui"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/urg_ui"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/edit_rdb_uni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/urg_uni"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/edit_rdb_nui"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/urg_nui"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/edit_rdb_nuni"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/urg_nuni"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView2e"
+        android:layout_width="183dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="101dp"
+        android:text="Urgency:"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edit_txt_text" />
+
+    <ImageView
+        android:id="@+id/imageView3e"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+
+        android:layout_marginTop="232dp"
+        android:background="@color/red_urgency"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewe" />
+
+    <ImageView
+        android:id="@+id/imageView4e"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@color/yellow_urgency"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5e"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <ImageView
+        android:id="@+id/imageView5e"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@color/orange_urgency"
+        app:layout_constraintBottom_toTopOf="@+id/imageView4e"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3e"
+        app:layout_constraintVertical_bias="1.0" />
+
+</android.support.constraint.ConstraintLayout>

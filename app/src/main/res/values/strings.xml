@@ -3,6 +3,7 @@
     <string name="home">Home</string>
     <string name="links">Links</string>
     <string name="add_task">Add Task</string>
+    <string name="edit_task">Edit Task</string>
     <string name="TMQ">TMQ</string>
     <string name="new_task">New task</string>
     <string name="name">Name</string>
