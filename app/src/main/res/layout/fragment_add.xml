@@ -72,6 +72,7 @@
         app:srcCompat="@drawable/ic_done_black_24dp" />
 
     <RadioGroup
+        android:id="@+id/add_radio_group"
         android:layout_width="362dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -80,7 +81,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <RadioButton
-            android:id="@+id/add_rdb_drwg"
+            android:id="@+id/add_rdb_ui"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -89,7 +90,7 @@
             android:textSize="20sp" />
 
         <RadioButton
-            android:id="@+id/add_rdb_drnwg"
+            android:id="@+id/add_rdb_uni"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -97,15 +98,15 @@
             android:textSize="20sp" />
 
         <RadioButton
-            android:id="@+id/add_rdb_ndrwg"
+            android:id="@+id/add_rdb_nui"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/urg_nuni"
+            android:text="@string/urg_nui"
             android:textSize="20sp" />
 
         <RadioButton
-            android:id="@+id/add_rdb_ndrnwg"
+            android:id="@+id/add_rdb_nuni"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
