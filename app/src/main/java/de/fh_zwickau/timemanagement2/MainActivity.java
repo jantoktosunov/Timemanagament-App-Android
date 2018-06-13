@@ -12,20 +12,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class MainActivity extends AppCompatActivity implements Serializable {
-    private CustomViewPager viewPager;
+public class MainActivity extends AppCompatActivity {
+
     private static final int HOME_POSITION = 0;
     private static final int LINKS_POSITION = 1;
     private static final int ADD_POSITION = 2;
     private static final int QUEST_POSITION = 3;
 
-    private static final String KEY_HOME_FRAGMENT = "home_fragment";
-    private static final String KEY_LINKS_FRAGMENT = "links_fragment";
-    private static final String KEY_ADD_FRAGMENT = "add_fragment";
-    private static final String KEY_QUEST_FRAGMENT = "quest_fragment";
     private ArrayList<Fragment> fragments = new ArrayList<>();
-
-    private ArrayList<Task> tasks = new ArrayList<>();
+    private static ArrayList<Task> tasks = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,28 +31,19 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         BottomNavigationViewHelper.disableShiftMode(bottomNav);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         //fragments.add(new HomeFragment());
-        fragments.add(HomeContainerFragment.newInstance(this));
+        fragments.add(HomeContainerFragment.newInstance());
         fragments.add(new LinksFragment());
-        fragments.add(AddFragment.newInstance(this));
+        fragments.add(AddFragment.newInstance());
         fragments.add(new QuestBasicFragment());
         initFragments();
         showFragment(HOME_POSITION);
         createTasks();
-//        viewPager = (CustomViewPager) findViewById(R.id.viewPager);
-//        ViewPagerAdapter adapter = new ViewPagerAdapter(MainActivity.this.getSupportFragmentManager());
-//        adapter.addFragment(new HomeFragment(), "homeFragment");
-//        adapter.addFragment(new LinksFragment(), "linksFragment");
-//        adapter.addFragment(new AddFragment(), "addFragment");
-//        adapter.addFragment(new QuestBasicFragment(), "questFragment");
-//        viewPager.setAdapter(adapter);
-
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Fragment selectedFragment = null;
                     switch (item.getItemId()) {
                         case R.id.nav_home:
                             showFragment(HOME_POSITION);
@@ -72,24 +58,6 @@ public class MainActivity extends AppCompatActivity implements Serializable {
                             showFragment(QUEST_POSITION);
                             break;
                     }
-//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                            selectedFragment).addToBackStack(null).commit();
-//                    switch (item.getItemId()) {
-//                        case R.id.nav_home:
-//                            viewPager.setCurrentItem(0);
-//                            break;
-//                        case R.id.nav_links:
-//                            viewPager.setCurrentItem(1);
-//                            break;
-//                        case R.id.nav_add:
-//                            viewPager.setCurrentItem(2);
-//                            break;
-//                        case R.id.nav_quest:
-//                            viewPager.setCurrentItem(3);
-//                            break;
-//
-//                    }
-//                    return true;
                     return true;
                 }
             };
@@ -114,14 +82,11 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         }
     }
 
-    public ArrayList<Task> getTasks() {
+    public static ArrayList<Task> getTasks() {
         return tasks;
     }
 
-    public void setTasks(ArrayList<Task> tasks) {
-        this.tasks = tasks;
-    }
-    public void addTask(Task task){
+    public static void addTask(Task task){
         tasks.add(task);
     }
     private void createTasks() {

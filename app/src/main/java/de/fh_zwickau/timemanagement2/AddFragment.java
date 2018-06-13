@@ -21,17 +21,15 @@ import java.util.Locale;
 
 public class AddFragment extends Fragment implements Serializable, DatePickerDialog.OnDateSetListener {
 
-    private static final String MAIN_ACTIVITY_KEY = "de.fh_zwickau.mainApp_key";
-    private MainActivity mainActivity;
-    private ImageView doneImg;
-    private TextView taskText;
-    private ImageView dateImg;
-    private TextView dateText;
+
+    private transient ImageView doneImg;
+    private transient TextView taskText;
+    private transient ImageView dateImg;
+    private transient TextView dateText;
     private Date taskDate;
-    public static AddFragment newInstance(MainActivity mainActivity) {
+    public static AddFragment newInstance() {
         AddFragment addFragment = new AddFragment();
         Bundle args = new Bundle();
-        args.putSerializable(MAIN_ACTIVITY_KEY, mainActivity);
         addFragment.setArguments(args);
         return addFragment;
     }
@@ -40,8 +38,6 @@ public class AddFragment extends Fragment implements Serializable, DatePickerDia
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add, container, false);
-        mainActivity = (MainActivity) getArguments().getSerializable(MAIN_ACTIVITY_KEY);
-        mainActivity.addTask(new Task("111", new Date(),Urgency.DRWG));
         taskText = view.findViewById(R.id.add_txt_text);
         dateText = view.findViewById(R.id.add_txt_date);
         doneImg = view.findViewById(R.id.add_img_done);
@@ -50,7 +46,7 @@ public class AddFragment extends Fragment implements Serializable, DatePickerDia
             public void onClick(View v) {
                 String text = getTaskText().getText().toString();
 
-                mainActivity.addTask(new Task(text, taskDate, Urgency.DRWG));
+                MainActivity.addTask(new Task(text, taskDate, Urgency.DRWG));
 
                 //TODO Transition from AddFragment to HomeFragment OR?
 

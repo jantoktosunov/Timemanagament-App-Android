@@ -11,14 +11,11 @@ import android.view.ViewGroup;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class HomeContainerFragment extends Fragment implements Serializable{
+public class HomeContainerFragment extends Fragment {
 
-    private static final String MAIN_ACTIVITY_KEY = "de.fh_zwickau.mainApp_key";
-    private MainActivity mainActivity;
-    public static HomeContainerFragment newInstance(MainActivity mainActivity) {
+    public static HomeContainerFragment newInstance() {
         HomeContainerFragment containerFragment = new HomeContainerFragment();
         Bundle args = new Bundle();
-        args.putSerializable(MAIN_ACTIVITY_KEY, mainActivity);
         containerFragment.setArguments(args);
         return containerFragment;
     }
@@ -29,8 +26,7 @@ public class HomeContainerFragment extends Fragment implements Serializable{
                              @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home_container, container, false);
-        mainActivity = (MainActivity) getArguments().getSerializable(MAIN_ACTIVITY_KEY);
-        HomeFragment homeFragment = HomeFragment.newInstance(mainActivity);
+        HomeFragment homeFragment = HomeFragment.newInstance();
         getChildFragmentManager().beginTransaction().add(R.id.home_frag_cont, homeFragment).commit();
         getChildFragmentManager().beginTransaction().show(homeFragment).commit();
 

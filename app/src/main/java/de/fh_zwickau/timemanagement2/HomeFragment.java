@@ -30,18 +30,16 @@ public class HomeFragment extends Fragment  {
 //        Spinner spinner = getView().findViewById(R.id.taskSpinner);
 //        //ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(getActivity(), R.layout.support_simple_spinner_dropdown_item, R.array.task_arts_array);
 //    }
-    private static final String MAIN_ACTIVITY_KEY = "de.fh_zwickau.mainApp_key";
-    private MainActivity mainActivity;
-    public static HomeFragment newInstance(MainActivity mainActivity) {
+
+    public static HomeFragment newInstance() {
         HomeFragment homeFragment = new HomeFragment();
         Bundle args = new Bundle();
-        args.putSerializable(MAIN_ACTIVITY_KEY, mainActivity);
         homeFragment.setArguments(args);
         return homeFragment;
     }
 
     static ArrayList<Task> tasks;
-    ListView listView;
+    transient ListView listView;
     private TaskAdapter adapter;
 
     String [] arrayTasks = {"All Tasks", "Completed Tasks", "Upcoming Tasks"};
@@ -52,11 +50,10 @@ public class HomeFragment extends Fragment  {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        mainActivity = (MainActivity) getArguments().getSerializable(MAIN_ACTIVITY_KEY);
         listView = view.findViewById(R.id.list_tasks);
         //tasks = new ArrayList<>();
         createTasks();
-        tasks = mainActivity.getTasks();
+        tasks = MainActivity.getTasks();
         adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
         listView.setAdapter(adapter);
         Spinner spinner = view.findViewById(R.id.spinnerT);

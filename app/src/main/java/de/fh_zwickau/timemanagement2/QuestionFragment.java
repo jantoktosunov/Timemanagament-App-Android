@@ -23,9 +23,9 @@ public class QuestionFragment extends Fragment implements Serializable {
 
     private int position;
     private QuestBasicFragment questBasicFragment;
-    private View questView;
+    private transient View questView;
     private boolean normalScored;
-    private RadioGroup radioGroup;
+    private transient RadioGroup radioGroup;
     private QuestionType questionType;
     public static QuestionFragment newInstance(String questionText, int position,
                                                boolean normalScored, QuestionType type, QuestBasicFragment basicFragment) {
