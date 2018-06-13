@@ -5,6 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="64dp"
+        android:background="@color/white_urgency"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
@@ -12,7 +21,9 @@
         android:background="@drawable/header_rectangle"
         android:gravity="center"
         android:text="@string/add_task"
-        android:textSize="24sp" />
+        android:textSize="24sp"
+        tools:layout_editor_absoluteX="115dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <EditText
         android:id="@+id/taskNameEditTxt"
@@ -50,5 +61,94 @@
         android:textSize="30sp"
         app:layout_constraintEnd_toStartOf="@+id/calendarImgView"
         app:layout_constraintTop_toBottomOf="@+id/taskNameEditTxt" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="44dp"
+        android:layout_height="41dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_done_black_24dp" />
+
+    <RadioGroup
+        android:layout_width="362dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
+
+        <RadioButton
+            android:id="@+id/add_rdb_drwg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dringend und Wichtig"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/add_rdb_drnwg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Dringend und nicht wichtig"
+            android:textSize="20sp"/>
+
+        <RadioButton
+            android:id="@+id/add_rdb_ndrwg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nicht dringlich und wichtig"
+            android:textSize="20sp"/>
+
+        <RadioButton
+            android:id="@+id/add_rdb_ndrnwg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Nicht dringlich und wichtig"
+            android:textSize="20sp"/>
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="183dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="101dp"
+        android:text="Urgency:"
+        android:textSize="40sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskNameEditTxt" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+
+        android:layout_marginTop="211dp"
+        android:background="@color/red_urgency"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="32dp"
+        android:background="@color/yellow_urgency"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:background="@color/orange_urgency"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
 </android.support.constraint.ConstraintLayout>
