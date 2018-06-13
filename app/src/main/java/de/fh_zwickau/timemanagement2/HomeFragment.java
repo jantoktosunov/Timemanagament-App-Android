@@ -120,7 +120,17 @@ public class HomeFragment extends Fragment  {
                     public void onClick(DialogInterface dialog, int which) {
                         if(which == 0){
                             //TODO Sort
-                        } else if (which == 1) {
+                            Collections.sort(tasks, new Comparator<Task>() {
+                                @Override
+                                public int compare(Task t1, Task t2) {
+                                    if(t1.getDate().after(t2.getDate())){
+                                        return 1;
+                                    } else return -1;
+                                }
+                            });
+                            adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
+                            listView.setAdapter(adapter);
+                            } else if (which == 1) {
                             //TODO Sort
 //                            Collections.sort(tasks, new Comparator<Task>() {
 //                                @Override
@@ -129,7 +139,10 @@ public class HomeFragment extends Fragment  {
 //                                    return 0;
 //                                }
 //                            });
-                           // Collections.sort(tasks, Urgency.getBy);
+                            Collections.sort(tasks, new UrgencyComparator());
+                            adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
+                            listView.setAdapter(adapter);
+
                         }
                     }
                 });
