@@ -30,8 +30,17 @@ public class HomeFragment extends Fragment  {
 //        Spinner spinner = getView().findViewById(R.id.taskSpinner);
 //        //ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(getActivity(), R.layout.support_simple_spinner_dropdown_item, R.array.task_arts_array);
 //    }
+    private static final String MAIN_ACTIVITY_KEY = "de.fh_zwickau.mainApp_key";
+    private MainActivity mainActivity;
+    public static HomeFragment newInstance(MainActivity mainActivity) {
+        HomeFragment homeFragment = new HomeFragment();
+        Bundle args = new Bundle();
+        args.putSerializable(MAIN_ACTIVITY_KEY, mainActivity);
+        homeFragment.setArguments(args);
+        return homeFragment;
+    }
 
-    static ArrayList<Task> tasks = new ArrayList<>();
+    static ArrayList<Task> tasks;
     ListView listView;
     private TaskAdapter adapter;
 
@@ -43,11 +52,11 @@ public class HomeFragment extends Fragment  {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
+        mainActivity = (MainActivity) getArguments().getSerializable(MAIN_ACTIVITY_KEY);
         listView = view.findViewById(R.id.list_tasks);
         //tasks = new ArrayList<>();
         createTasks();
-
+        tasks = mainActivity.getTasks();
         adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
         listView.setAdapter(adapter);
         Spinner spinner = view.findViewById(R.id.spinnerT);
@@ -135,14 +144,7 @@ public class HomeFragment extends Fragment  {
 
     }
     private void createTasks(){
-        tasks.add(new Task("TRUE",new Date(),Urgency.DRWG));
-        tasks.add(new Task("TRUE",new Date(),Urgency.DRWG));
-        tasks.add(new Task("TRUE",new Date(),Urgency.NDRWG));
-        tasks.add(new Task("1",new Date(),Urgency.NDRNWG));
-        tasks.add(new Task("2",new Date(),Urgency.NDRNWG));
-        tasks.add(new Task("3",new Date(),Urgency.NDRNWG));
-        tasks.add(new Task("4",new Date(),Urgency.NDRNWG));
-        tasks.add(new Task("5",new Date(),Urgency.DRNWG));
+
         //tasks.get(0).setDone(true);
         //tasks.get(1).setDone(true);
         //tasks.get(2).setDone(true);

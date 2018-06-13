@@ -8,9 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Serializable {
     private CustomViewPager viewPager;
     private static final int HOME_POSITION = 0;
     private static final int LINKS_POSITION = 1;
@@ -23,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String KEY_QUEST_FRAGMENT = "quest_fragment";
     private ArrayList<Fragment> fragments = new ArrayList<>();
 
-    //private ArrayList<Task> tasks = new ArrayList<>();
+    private ArrayList<Task> tasks = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,12 +36,13 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationViewHelper.disableShiftMode(bottomNav);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         //fragments.add(new HomeFragment());
-        fragments.add(new HomeContainerFragment());
+        fragments.add(HomeContainerFragment.newInstance(this));
         fragments.add(new LinksFragment());
         fragments.add(new AddFragment());
         fragments.add(new QuestBasicFragment());
         initFragments();
         showFragment(HOME_POSITION);
+        createTasks();
 //        viewPager = (CustomViewPager) findViewById(R.id.viewPager);
 //        ViewPagerAdapter adapter = new ViewPagerAdapter(MainActivity.this.getSupportFragmentManager());
 //        adapter.addFragment(new HomeFragment(), "homeFragment");
@@ -111,6 +114,25 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public ArrayList<Task> getTasks() {
+        return tasks;
+    }
 
+    public void setTasks(ArrayList<Task> tasks) {
+        this.tasks = tasks;
+    }
+    public void addTask(Task task){
+        tasks.add(task);
+    }
+    private void createTasks() {
+        tasks.add(new Task("TRUE",new Date(),Urgency.DRWG));
+        tasks.add(new Task("TRUE",new Date(),Urgency.DRWG));
+        tasks.add(new Task("TRUE",new Date(),Urgency.NDRWG));
+        tasks.add(new Task("1",new Date(),Urgency.NDRNWG));
+        tasks.add(new Task("2",new Date(),Urgency.NDRNWG));
+        tasks.add(new Task("3",new Date(),Urgency.NDRNWG));
+        tasks.add(new Task("4",new Date(),Urgency.NDRNWG));
+        tasks.add(new Task("5",new Date(),Urgency.DRNWG));
+    }
 }
 

@@ -12,7 +12,15 @@ import java.util.ArrayList;
 
 public class HomeContainerFragment extends Fragment {
 
-
+    private static final String MAIN_ACTIVITY_KEY = "de.fh_zwickau.mainApp_key";
+    private MainActivity mainActivity;
+    public static HomeContainerFragment newInstance(MainActivity mainActivity) {
+        HomeContainerFragment containerFragment = new HomeContainerFragment();
+        Bundle args = new Bundle();
+        args.putSerializable(MAIN_ACTIVITY_KEY, mainActivity);
+        containerFragment.setArguments(args);
+        return containerFragment;
+    }
 
     @Nullable
     @Override
@@ -20,10 +28,13 @@ public class HomeContainerFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home_container, container, false);
-        HomeFragment homeFragment = new HomeFragment();
+        mainActivity = (MainActivity) getArguments().getSerializable(MAIN_ACTIVITY_KEY);
+        HomeFragment homeFragment = HomeFragment.newInstance(mainActivity);
         getChildFragmentManager().beginTransaction().add(R.id.home_frag_cont, homeFragment).commit();
         getChildFragmentManager().beginTransaction().show(homeFragment).commit();
+
         return view;
         // return super.onCreateView(R.layout.fragment_home_container, container, savedInstanceState);
     }
+
 }
