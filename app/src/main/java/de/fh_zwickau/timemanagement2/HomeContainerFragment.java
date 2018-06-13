@@ -8,9 +8,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class HomeContainerFragment extends Fragment {
+public class HomeContainerFragment extends Fragment implements Serializable{
 
     private static final String MAIN_ACTIVITY_KEY = "de.fh_zwickau.mainApp_key";
     private MainActivity mainActivity;

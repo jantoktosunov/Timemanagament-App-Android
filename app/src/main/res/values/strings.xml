@@ -42,4 +42,6 @@
         <item>Completed tasks</item>
         <item>Upcoming tasks</item>
     </string-array>
+    <string name="links_about">Links that will help you to Improve Your Time Management Skills.</string>
+    <string name="link1_string"><a href="http://www.google.com">Google</a></string>
 </resources>
