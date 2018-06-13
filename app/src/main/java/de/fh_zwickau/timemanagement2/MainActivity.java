@@ -33,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
         BottomNavigationViewHelper.disableShiftMode(bottomNav);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
-        fragments.add(new HomeFragment());
+        //fragments.add(new HomeFragment());
+        fragments.add(new HomeContainerFragment());
         fragments.add(new LinksFragment());
         fragments.add(new AddFragment());
         fragments.add(new QuestBasicFragment());

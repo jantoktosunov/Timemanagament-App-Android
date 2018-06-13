@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +41,16 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        //TODO
+        int position  = (Integer)v.getTag();
+        Object object  = getItem(position);
+        Task task = (Task) object;
+        switch (v.getId()) {
+            case R.id.imgDone:
+                //task.setDone(true);
+                Snackbar.make(v, "TEST", Snackbar.LENGTH_LONG)
+                        .setAction("No action", null).show();
+                break;
+        }
     }
 
     private int lastPosition = -1;
@@ -91,6 +101,7 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
         viewHolder.imgDone = convertView.findViewById(R.id.imgDone);
         if(task.isDone()){
             viewHolder.imgDone.setBackgroundResource(R.drawable.ic_done_green_24dp);
+            //viewHolder.imgDone.setBackgroundResource(R.drawable);
         }
         return convertView;
     }

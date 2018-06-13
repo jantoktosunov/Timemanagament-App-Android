@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -32,7 +33,7 @@ public class HomeFragment extends Fragment  {
 
     static ArrayList<Task> tasks = new ArrayList<>();
     ListView listView;
-    private static TaskAdapter adapter;
+    private TaskAdapter adapter;
 
     String [] arrayTasks = {"All Tasks", "Completed Tasks", "Upcoming Tasks"};
 
@@ -42,13 +43,11 @@ public class HomeFragment extends Fragment  {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        String[] taskStrings = {"1","2","3","4"};
+
         listView = view.findViewById(R.id.list_tasks);
         //tasks = new ArrayList<>();
         createTasks();
-        tasks.get(0).setDone(true);
-        tasks.get(1).setDone(true);
-        tasks.get(2).setDone(true);
+
         adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
         listView.setAdapter(adapter);
         Spinner spinner = view.findViewById(R.id.spinnerT);
@@ -92,6 +91,15 @@ public class HomeFragment extends Fragment  {
                 android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Task task = tasks.get(position);
+                Snackbar.make(view, task.getText(), Snackbar.LENGTH_LONG)
+                        .setAction("No action", null).show();
+            }
+        });
+
         ImageView imgSort = view.findViewById(R.id.img_sort);
         imgSort.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,23 +138,14 @@ public class HomeFragment extends Fragment  {
         tasks.add(new Task("TRUE",new Date(),Urgency.DRWG));
         tasks.add(new Task("TRUE",new Date(),Urgency.DRWG));
         tasks.add(new Task("TRUE",new Date(),Urgency.NDRWG));
-        tasks.add(new Task("NDRNWG",new Date(),Urgency.NDRNWG));
-        tasks.add(new Task("DRNWG",new Date(),Urgency.DRNWG));
-        tasks.add(new Task("DRNWGDRNWGDRNWGDRNWG" +
-                "DRNWGDRNWGDRNWGDRNWGDRNWGDRNWGDRNWGDRNWG" +
-                "DRNWGDRNWGDRNWGDRNWG" +
-                "DRNWGDRNWGDRNWGDRNWGDRNWG" +
-                "DRNWGDRNWGDRNWGDRNWGDRNWG" +
-                "DRNWGDRNWGDRNWGDRNWGDRNWG" +
-                "DRNWGDRNWGDRNWGDRNWGDRNWG",new Date(),Urgency.DRNWG));
-        tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
-        tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
-        tasks.add(new Task("NDRWG",new Date(),Urgency.NDRWG));
-        tasks.add(new Task("NDRNWG",new Date(),Urgency.NDRNWG));
-        tasks.add(new Task("DRNWG",new Date(),Urgency.DRNWG));
-        tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
-        tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
-        tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
-        tasks.add(new Task("DRWG",new Date(),Urgency.DRWG));
+        tasks.add(new Task("1",new Date(),Urgency.NDRNWG));
+        tasks.add(new Task("2",new Date(),Urgency.NDRNWG));
+        tasks.add(new Task("3",new Date(),Urgency.NDRNWG));
+        tasks.add(new Task("4",new Date(),Urgency.NDRNWG));
+        tasks.add(new Task("5",new Date(),Urgency.DRNWG));
+        //tasks.get(0).setDone(true);
+        //tasks.get(1).setDone(true);
+        //tasks.get(2).setDone(true);
+
     }
 }
