@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements Serializable {
         //fragments.add(new HomeFragment());
         fragments.add(HomeContainerFragment.newInstance(this));
         fragments.add(new LinksFragment());
-        fragments.add(new AddFragment());
+        fragments.add(AddFragment.newInstance(this));
         fragments.add(new QuestBasicFragment());
         initFragments();
         showFragment(HOME_POSITION);
