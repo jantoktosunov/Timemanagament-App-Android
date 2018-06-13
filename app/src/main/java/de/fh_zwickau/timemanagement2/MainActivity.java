@@ -93,12 +93,12 @@ public class MainActivity extends AppCompatActivity {
     }
     private void createTasks() {
         tasks.add(new Task("TRUE",new Date(),Urgency.UI));
-        tasks.get(0).setDone(true);
+        //tasks.get(0).setDone(true);
 
         tasks.add(new Task("TRUE",new Date(),Urgency.UI));
-        tasks.get(1).setDone(true);
+        //tasks.get(1).setDone(true);
         tasks.add(new Task("TRUE",new Date(),Urgency.NUI));
-        tasks.get(2).setDone(true);
+        //tasks.get(2).setDone(true);
         tasks.add(new Task("1",new Date(),Urgency.NUNI));
         tasks.add(new Task("2",new Date(),Urgency.NUNI));
         tasks.add(new Task("3",new Date(),Urgency.NUNI));

@@ -38,14 +38,16 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        int position  = (Integer)v.getTag();
-        Object object  = getItem(position);
+        int position = (Integer)v.getTag();
+        Object object = getItem(position);
         Task task = (Task) object;
         switch (v.getId()) {
             case R.id.imgDone:
-                //task.setDone(true);
-                Snackbar.make(v, "TEST", Snackbar.LENGTH_LONG)
-                        .setAction("No action", null).show();
+                if(task.isDone() == false){
+                    Snackbar.make(v, "Done", Snackbar.LENGTH_LONG)
+                            .setAction("No action", null).show();
+                }
+                task.setDone(true);
                 break;
         }
     }
@@ -75,7 +77,7 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
             viewHolder.txtText = convertView.findViewById(R.id.taskText);
             viewHolder.txtDate = convertView.findViewById(R.id.dateText);
             viewHolder.imgDone = convertView.findViewById(R.id.imgDone);
-
+            viewHolder.imgDone.setBackgroundResource(R.drawable.ic_done_ghost_24dp);
 
             result = convertView;
 
@@ -96,7 +98,9 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
         int color = setUrgencyColor(task.getUrgency());
         viewHolder.imgUrgency.setBackgroundColor(color);
         viewHolder.imgDone = convertView.findViewById(R.id.imgDone);
-        if(task.isDone()){
+        viewHolder.imgDone.setOnClickListener(this);
+        viewHolder.imgDone.setTag(position);
+        if(task.isDone() == true){
             viewHolder.imgDone.setBackgroundResource(R.drawable.ic_done_green_24dp);
             //viewHolder.imgDone.setBackgroundResource(R.drawable);
         }
