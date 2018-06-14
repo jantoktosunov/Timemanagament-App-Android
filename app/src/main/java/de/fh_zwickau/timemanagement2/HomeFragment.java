@@ -50,7 +50,6 @@ public class HomeFragment extends Fragment implements Serializable {
     ArrayList<Task> doneTasks;
     TaskAdapter adapterDone;
     TaskAdapter adapterFalse;
-
     String [] arrayTasks = {"All Tasks", "Completed Tasks", "Upcoming Tasks"};
 
 
@@ -127,8 +126,6 @@ public class HomeFragment extends Fragment implements Serializable {
                 Task task = tasks.get(position);
                 EditTaskFragment editTaskFragment = EditTaskFragment.newInstance(task, containerFragment);
                 containerFragment.addAndShowEditTaskFragment(editTaskFragment);
-
-                //TODO transition to EditTaskFragment
             }
         });
 
@@ -154,7 +151,7 @@ public class HomeFragment extends Fragment implements Serializable {
                             Collections.sort(tasks, new Comparator<Task>() {
                                 @Override
                                 public int compare(Task t1, Task t2) {
-                                    if(t1.getDate().after(t2.getDate())){
+                                    if(t1.getDate().after(t2.getDate())) {
                                         return 1;
                                     } else return -1;
                                 }
@@ -165,7 +162,7 @@ public class HomeFragment extends Fragment implements Serializable {
                             } else if (which == 1) {
                                 if(listView.getAdapter().equals(adapterDone)) {
                                     tasks = doneTasks;
-                                } else if(listView.getAdapter().equals(adapterFalse)){
+                                } else if(listView.getAdapter().equals(adapterFalse)) {
                                     tasks = upcomingTasks;
                                 }
                                 Collections.sort(tasks, new UrgencyComparator());
@@ -186,7 +183,6 @@ public class HomeFragment extends Fragment implements Serializable {
                 sortDialog.show();*/
             }
         });
-
         return view;
     }
 

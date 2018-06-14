@@ -11,8 +11,7 @@ public class Task implements Serializable {
     private boolean isDone = false;
     private Date date;
     private Urgency urgency;
-    public Task(String text, Date date, Urgency urgency){
-        //isDone = false;
+    public Task(String text, Date date, Urgency urgency) {
         this.text = text;
         this.date = date;
         this.urgency = urgency;
@@ -20,7 +19,7 @@ public class Task implements Serializable {
     public Task(String text){
         this.text = text;
     }
-    public Task(){
+    public Task() {
 
     }
 

@@ -18,7 +18,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 //https://www.journaldev.com/10416/android-listview-with-custom-adapter-example-tutorial
 /**
- * Not final version
+ * Adapter for Task
  */
 public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListener, Serializable {
     private ArrayList<Task> tasks;
@@ -44,7 +44,7 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
         Task task = (Task) object;
         switch (v.getId()) {
             case R.id.imgDone:
-                if(task.isDone() == false){
+                if (task.isDone() == false) {
                     Snackbar.make(v, "Done", Snackbar.LENGTH_LONG)
                             .setAction("No action", null).show();
                 }
@@ -79,9 +79,7 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
             viewHolder.txtDate = convertView.findViewById(R.id.dateText);
             viewHolder.imgDone = convertView.findViewById(R.id.imgDone);
             viewHolder.imgDone.setBackgroundResource(R.drawable.ic_done_ghost_24dp);
-
             result = convertView;
-
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
@@ -101,7 +99,7 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
         viewHolder.imgDone = convertView.findViewById(R.id.imgDone);
         viewHolder.imgDone.setOnClickListener(this);
         viewHolder.imgDone.setTag(position);
-        if(task.isDone() == true){
+        if (task.isDone() == true) {
             viewHolder.imgDone.setBackgroundResource(R.drawable.ic_done_green_24dp);
             //viewHolder.imgDone.setBackgroundResource(R.drawable);
         } else {
@@ -126,12 +124,10 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
         } else if (urgency.equals(Urgency.NUI)) {
             //YELLOW
             color = Color.parseColor("#eae22a");
-        } else if(urgency.equals(Urgency.NUNI)) {
+        } else if (urgency.equals(Urgency.NUNI)) {
             //RED
             color = Color.parseColor("#FFFFFF");
         }
-
         return color;
     }
-
 }
