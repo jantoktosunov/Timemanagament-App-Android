@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,9 +20,9 @@ import java.util.ArrayList;
 /**
  * Not final version
  */
-public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListener{
+public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListener, Serializable {
     private ArrayList<Task> tasks;
-    Context mContext; //TODO WTF
+    transient Context mContext; //TODO WTF
 
     private static class ViewHolder{
         TextView txtText;

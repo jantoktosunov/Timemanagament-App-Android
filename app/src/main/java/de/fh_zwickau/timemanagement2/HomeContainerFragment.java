@@ -11,8 +11,8 @@ import android.view.ViewGroup;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class HomeContainerFragment extends Fragment {
-
+public class HomeContainerFragment extends Fragment implements Serializable {
+    private HomeFragment homeFragment;
     public static HomeContainerFragment newInstance() {
         HomeContainerFragment containerFragment = new HomeContainerFragment();
         Bundle args = new Bundle();
@@ -26,12 +26,22 @@ public class HomeContainerFragment extends Fragment {
                              @Nullable Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_home_container, container, false);
-        HomeFragment homeFragment = HomeFragment.newInstance();
+        homeFragment = HomeFragment.newInstance(this);
         getChildFragmentManager().beginTransaction().add(R.id.home_frag_cont, homeFragment).commit();
         getChildFragmentManager().beginTransaction().show(homeFragment).commit();
 
         return view;
         // return super.onCreateView(R.layout.fragment_home_container, container, savedInstanceState);
     }
+    public void addAndShowEditTaskFragment(EditTaskFragment editTaskFragment) {
+        getChildFragmentManager().beginTransaction().add(R.id.home_frag_cont, editTaskFragment).commit();
+        getChildFragmentManager().beginTransaction().show(editTaskFragment).commit();
+        getChildFragmentManager().beginTransaction().hide(homeFragment).commit();
+    }
+    public void removeEditAndShowHomeFragment(EditTaskFragment editTaskFragment) {
+        getChildFragmentManager().beginTransaction().remove(editTaskFragment).commit();
+        getChildFragmentManager().beginTransaction().show(homeFragment).commit();
+    }
+
 
 }

@@ -48,7 +48,7 @@ public class AddFragment extends Fragment implements Serializable, DatePickerDia
         doneImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String text = getTaskText().getText().toString();
+                String text = taskText.getText().toString();
                 int selectedId = radioGroup.getCheckedRadioButtonId();
                 Urgency urgency = null;
                 if (selectedId == R.id.add_rdb_ui) {
@@ -75,10 +75,6 @@ public class AddFragment extends Fragment implements Serializable, DatePickerDia
             }
         });
         return view;
-    }
-
-    public TextView getTaskText() {
-        return taskText;
     }
 
     @Override

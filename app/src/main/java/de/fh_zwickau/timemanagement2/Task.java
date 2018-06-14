@@ -1,11 +1,12 @@
 package de.fh_zwickau.timemanagement2;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Our Task
  */
-public class Task {
+public class Task implements Serializable {
     private String text;
     private boolean isDone = false;
     private Date date;

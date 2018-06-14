@@ -17,12 +17,13 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 
-public class HomeFragment extends Fragment  {
+public class HomeFragment extends Fragment implements Serializable {
     //private static final Task[] tasks = {new Task("DO IT"), new Task("DO IT LATER!"),
      //                                 new Task("Write text"), new Task("Find this")};
 
@@ -32,10 +33,12 @@ public class HomeFragment extends Fragment  {
 //        Spinner spinner = getView().findViewById(R.id.taskSpinner);
 //        //ArrayAdapter<CharSequence> adapter = new ArrayAdapter<>(getActivity(), R.layout.support_simple_spinner_dropdown_item, R.array.task_arts_array);
 //    }
-
-    public static HomeFragment newInstance() {
+    private static final String HOME_CONTAINER_FRAGMENT_KEY = "de.fh_zwickau.home_container_fragment_key";
+    private HomeContainerFragment containerFragment;
+    public static HomeFragment newInstance(HomeContainerFragment containerFragment) {
         HomeFragment homeFragment = new HomeFragment();
         Bundle args = new Bundle();
+        args.putSerializable(HOME_CONTAINER_FRAGMENT_KEY, containerFragment);
         homeFragment.setArguments(args);
         return homeFragment;
     }
@@ -52,8 +55,9 @@ public class HomeFragment extends Fragment  {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable final ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-        listView = view.findViewById(R.id.list_tasks);
 
+        containerFragment = (HomeContainerFragment) getArguments().getSerializable(HOME_CONTAINER_FRAGMENT_KEY);
+        listView = view.findViewById(R.id.list_tasks);
         tasks = MainActivity.getTasks();
         adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
         listView.setAdapter(adapter);
@@ -98,14 +102,20 @@ public class HomeFragment extends Fragment  {
                 android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(spinnerAdapter);
 
+
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Task task = tasks.get(position);
+                EditTaskFragment editTaskFragment = EditTaskFragment.newInstance(task, containerFragment);
+                containerFragment.addAndShowEditTaskFragment(editTaskFragment);
 
                 //TODO transition to EditTaskFragment
             }
         });
+
+
 
         ImageView imgSort = view.findViewById(R.id.img_sort);
         imgSort.setOnClickListener(new View.OnClickListener() {
