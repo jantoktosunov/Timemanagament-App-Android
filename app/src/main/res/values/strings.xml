@@ -9,7 +9,7 @@
     <string name="name">Name</string>
     <string name="date">Date</string>
     <string name="Start_questionnaire">Start questionnaire</string>
-
+    <string name="urgency">Urgency:</string>
     <string name="urg_ui">Urgent &amp; Important</string>
     <string name="urg_nui">Not Urgent &amp; Important</string>
     <string name="urg_uni">Urgent &amp; Not important</string>
