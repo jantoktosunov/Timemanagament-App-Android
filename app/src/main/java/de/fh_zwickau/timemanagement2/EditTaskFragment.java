@@ -105,6 +105,7 @@ public class EditTaskFragment extends Fragment implements Serializable, DatePick
             @Override
             public void onClick(View v) {
                 containerFragment.removeEditAndShowHomeFragment(EditTaskFragment.this);
+
             }
         });
         return view;

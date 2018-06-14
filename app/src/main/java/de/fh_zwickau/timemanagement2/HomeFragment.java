@@ -72,20 +72,22 @@ public class HomeFragment extends Fragment implements Serializable {
                         for (Task t: tasks) {
                             if(t.isDone() == true) {
                                 doneTasks.add(t);
-                                TaskAdapter adapterDone = new TaskAdapter(doneTasks,getActivity().getApplicationContext());
-                                listView.setAdapter(adapterDone);
+
                             }
                         }
+                        TaskAdapter adapterDone = new TaskAdapter(doneTasks,getActivity().getApplicationContext());
+                        listView.setAdapter(adapterDone);
                         break;
                     case 2:
                         ArrayList<Task> todoTasks = new ArrayList<>();
                         for (Task t: tasks) {
                             if(t.isDone() == false) {
                                 todoTasks.add(t);
-                                TaskAdapter adapterFalse = new TaskAdapter(todoTasks,getActivity().getApplicationContext());
-                                listView.setAdapter(adapterFalse);
+
                             }
                         }
+                        TaskAdapter adapterFalse = new TaskAdapter(todoTasks,getActivity().getApplicationContext());
+                        listView.setAdapter(adapterFalse);
                         break;
 
                 }
