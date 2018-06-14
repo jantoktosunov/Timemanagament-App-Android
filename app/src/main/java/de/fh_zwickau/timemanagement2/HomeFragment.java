@@ -46,6 +46,10 @@ public class HomeFragment extends Fragment implements Serializable {
     static ArrayList<Task> tasks;
     transient ListView listView;
     private TaskAdapter adapter;
+    ArrayList<Task> upcomingTasks;
+    ArrayList<Task> doneTasks;
+    TaskAdapter adapterDone;
+    TaskAdapter adapterFalse;
 
     String [] arrayTasks = {"All Tasks", "Completed Tasks", "Upcoming Tasks"};
 
@@ -66,27 +70,30 @@ public class HomeFragment extends Fragment implements Serializable {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
-                    case 0: listView.setAdapter(adapter); break;
+                    case 0:
+                        tasks = MainActivity.getTasks();
+                        adapter = new TaskAdapter(tasks,getActivity().getApplicationContext());
+                        listView.setAdapter(adapter); break;
                     case 1:
-                        ArrayList<Task> doneTasks = new ArrayList<>();
+                        tasks = MainActivity.getTasks();
+                        doneTasks = new ArrayList<>();
                         for (Task t: tasks) {
                             if(t.isDone() == true) {
                                 doneTasks.add(t);
-
                             }
                         }
-                        TaskAdapter adapterDone = new TaskAdapter(doneTasks,getActivity().getApplicationContext());
+                        adapterDone = new TaskAdapter(doneTasks,getActivity().getApplicationContext());
                         listView.setAdapter(adapterDone);
                         break;
                     case 2:
-                        ArrayList<Task> todoTasks = new ArrayList<>();
+                        tasks = MainActivity.getTasks();
+                        upcomingTasks = new ArrayList<>();
                         for (Task t: tasks) {
                             if(t.isDone() == false) {
-                                todoTasks.add(t);
-
+                                upcomingTasks.add(t);
                             }
                         }
-                        TaskAdapter adapterFalse = new TaskAdapter(todoTasks,getActivity().getApplicationContext());
+                        adapterFalse = new TaskAdapter(upcomingTasks,getActivity().getApplicationContext());
                         listView.setAdapter(adapterFalse);
                         break;
 
@@ -131,7 +138,11 @@ public class HomeFragment extends Fragment implements Serializable {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if(which == 0){
-                            //TODO Sort
+                            if(listView.getAdapter().equals(adapterDone)) {
+                                tasks = doneTasks;
+                            } else if(listView.getAdapter().equals(adapterFalse)){
+                                tasks = upcomingTasks;
+                            }
                             Collections.sort(tasks, new Comparator<Task>() {
                                 @Override
                                 public int compare(Task t1, Task t2) {
@@ -140,20 +151,18 @@ public class HomeFragment extends Fragment implements Serializable {
                                     } else return -1;
                                 }
                             });
+
                             adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
                             listView.setAdapter(adapter);
                             } else if (which == 1) {
-                            //TODO Sort
-//                            Collections.sort(tasks, new Comparator<Task>() {
-//                                @Override
-//                                public int compare(Task t1, Task t2) {
-//                                    if(t1.getUrgency() == t2.getUrgency())
-//                                    return 0;
-//                                }
-//                            });
-                            Collections.sort(tasks, new UrgencyComparator());
-                            adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
-                            listView.setAdapter(adapter);
+                                if(listView.getAdapter().equals(adapterDone)) {
+                                    tasks = doneTasks;
+                                } else if(listView.getAdapter().equals(adapterFalse)){
+                                    tasks = upcomingTasks;
+                                }
+                                Collections.sort(tasks, new UrgencyComparator());
+                                adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
+                                listView.setAdapter(adapter);
 
                         }
                     }
