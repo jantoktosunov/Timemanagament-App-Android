@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
@@ -92,18 +93,41 @@ public class MainActivity extends AppCompatActivity {
         tasks.add(task);
     }
     private void createTasks() {
-        tasks.add(new Task("TRUE",new Date(),Urgency.UI));
-        //tasks.get(0).setDone(true);
+        tasks.add(new Task("Android Project", new Date(), Urgency.UI));
+        tasks.get(0).setDone(true);
 
-        tasks.add(new Task("TRUE",new Date(),Urgency.UI));
-        //tasks.get(1).setDone(true);
-        tasks.add(new Task("TRUE",new Date(),Urgency.NUI));
-        //tasks.get(2).setDone(true);
-        tasks.add(new Task("1",new Date(),Urgency.NUNI));
-        tasks.add(new Task("2",new Date(),Urgency.NUNI));
-        tasks.add(new Task("3",new Date(),Urgency.NUNI));
-        tasks.add(new Task("4",new Date(),Urgency.NUNI));
-        tasks.add(new Task("5",new Date(),Urgency.UNI));
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(Calendar.YEAR, 2018);
+        calendar.set(Calendar.MONTH, 7);
+        calendar.set(Calendar.DAY_OF_MONTH, 5);
+
+        tasks.add(new Task("Prepare for the RE exam", calendar.getTime(), Urgency.NUI));
+
+        calendar.set(Calendar.DAY_OF_MONTH, 10);
+        tasks.add(new Task("Prepare for the GdP2 exam", calendar.getTime() , Urgency.UNI));
+
+        calendar.set(Calendar.DAY_OF_MONTH, 12);
+        tasks.add(new Task("Prepare for the Netzwerke exam", calendar.getTime() , Urgency.NUI));
+
+        calendar.set(Calendar.DAY_OF_MONTH, 17);
+        tasks.add(new Task("Prepare for the Android exam", calendar.getTime() , Urgency.UI));
+
+        calendar.set(Calendar.MONTH, 8);
+        calendar.set(Calendar.DAY_OF_MONTH, 1);
+        tasks.add(new Task("Lose weight by 5 kg", calendar.getTime(), Urgency.NUNI));
+
+        calendar.set(Calendar.MONTH, 6);
+        calendar.set(Calendar.DAY_OF_MONTH, 21);
+        tasks.add(new Task("Pay Semesterbeitrag", calendar.getTime(), Urgency.NUNI));
+
+        calendar.set(Calendar.DAY_OF_MONTH, 14);
+        tasks.add(new Task("Prepare for the WM-2018", new Date(), Urgency.UNI));
+
+        calendar.set(Calendar.MONTH, 9);
+        tasks.add(new Task("Take a shower" , calendar.getTime(), Urgency.UI));
+
+
+
     }
 }
 
