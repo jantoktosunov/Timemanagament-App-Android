@@ -7,7 +7,7 @@
         android:id="@+id/quest_txt_header"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@drawable/header_rectangle"
+        android:background="@color/colorBottomNav"
         android:gravity="center"
         android:text="@string/Start_questionnaire"
         android:textSize="24sp"
@@ -37,14 +37,5 @@
         app:layout_constraintEnd_toEndOf="@+id/quest_txt_header"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_navigate_next_black_24dp" />
-
-    <!--<FrameLayout-->
-        <!--android:id="@+id/frag_cont_quest_start"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--app:layout_constraintBottom_toBottomOf="parent"-->
-        <!--app:layout_constraintEnd_toEndOf="parent"-->
-        <!--app:layout_constraintStart_toStartOf="parent"-->
-        <!--app:layout_constraintTop_toTopOf="parent" />-->
 
 </android.support.constraint.ConstraintLayout>

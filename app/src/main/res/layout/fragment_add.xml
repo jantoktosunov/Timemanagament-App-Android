@@ -17,7 +17,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@drawable/header_rectangle"
+        android:background="@color/colorBottomNav"
         android:gravity="center"
         android:text="@string/add_task"
         android:textSize="24sp"
@@ -83,7 +83,7 @@
         <RadioButton
             android:id="@+id/add_rdb_ui"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="43dp"
             android:layout_weight="1"
             android:checked="true"
             android:text="@string/urg_ui"
@@ -121,7 +121,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="101dp"
         android:text="Urgency:"
-        android:textSize="40sp"
+        android:textSize="25sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_txt_text" />
 

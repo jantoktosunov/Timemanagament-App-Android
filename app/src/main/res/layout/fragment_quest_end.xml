@@ -8,7 +8,7 @@
         android:id="@+id/quest_end_txt_header"
         android:layout_width="match_parent"
         android:layout_height="70dp"
-        android:background="@drawable/header_rectangle"
+        android:background="@color/colorBottomNav"
         android:gravity="center"
         android:text="@string/final_score"
         android:textSize="24sp"

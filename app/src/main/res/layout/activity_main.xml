@@ -6,12 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <!--<Spinner-->
-        <!--android:id="@+id/tasksSpinner"-->
-        <!--android:layout_width="0dp"-->
-        <!--android:layout_height="71dp"-->
-        <!--android:background="@drawable/header_rectangle" />-->
-
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
