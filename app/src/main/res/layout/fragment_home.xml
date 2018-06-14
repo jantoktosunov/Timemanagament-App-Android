@@ -10,6 +10,7 @@
         android:id="@+id/appbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/colorBottomNav"
         app:expanded="true">
 
         <android.support.constraint.ConstraintLayout
@@ -36,7 +37,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
+                app:srcCompat="@drawable/ic_sort_black_24dp" />
         </android.support.constraint.ConstraintLayout>
     </android.support.design.widget.AppBarLayout>
 
