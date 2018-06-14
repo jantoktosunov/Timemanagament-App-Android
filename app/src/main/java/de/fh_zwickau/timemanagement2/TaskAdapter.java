@@ -22,9 +22,9 @@ import java.util.ArrayList;
  */
 public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListener, Serializable {
     private ArrayList<Task> tasks;
-    transient Context mContext; //TODO WTF
+    transient Context mContext;
 
-    private static class ViewHolder{
+    private static class ViewHolder {
         TextView txtText;
         TextView txtDate;
         ImageView imgUrgency;
@@ -56,14 +56,14 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
     private int lastPosition = -1;
 
     /**
-     * TODO
+     *
      * @param position
      * @param convertView
      * @param parent
      * @return
      */
     @NonNull
-    @Override //TODO
+    @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         Task task = getItem(position);
         ViewHolder viewHolder;
@@ -104,24 +104,26 @@ public class TaskAdapter extends ArrayAdapter<Task> implements View.OnClickListe
         if(task.isDone() == true){
             viewHolder.imgDone.setBackgroundResource(R.drawable.ic_done_green_24dp);
             //viewHolder.imgDone.setBackgroundResource(R.drawable);
+        } else {
+            viewHolder.imgDone.setBackgroundResource(R.drawable.ic_done_ghost_24dp);
         }
         return convertView;
     }
 
     /**
-     *
+     *  Changes int color depends on Urgency
      * @param urgency
-     * @return
+     * @return colors number
      */
-    private int setUrgencyColor(Urgency urgency){
+    private int setUrgencyColor(Urgency urgency) {
         int color = Color.WHITE;
-        if(urgency.equals(Urgency.UI)){
+        if (urgency.equals(Urgency.UI)) {
             //RED
             color = Color.parseColor("#FF0000");
-        } else if (urgency.equals(Urgency.UNI)){
+        } else if (urgency.equals(Urgency.UNI)) {
             //ORANGE
             color = Color.parseColor("#ffa500");
-        } else if (urgency.equals(Urgency.NUI)){
+        } else if (urgency.equals(Urgency.NUI)) {
             //YELLOW
             color = Color.parseColor("#eae22a");
         } else if(urgency.equals(Urgency.NUNI)) {
