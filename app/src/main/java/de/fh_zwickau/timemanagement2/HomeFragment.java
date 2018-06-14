@@ -63,6 +63,14 @@ public class HomeFragment extends Fragment implements Serializable {
         containerFragment = (HomeContainerFragment) getArguments().getSerializable(HOME_CONTAINER_FRAGMENT_KEY);
         listView = view.findViewById(R.id.list_tasks);
         tasks = MainActivity.getTasks();
+        Collections.sort(tasks, new Comparator<Task>() {
+            @Override
+            public int compare(Task t1, Task t2) {
+                if(t1.getDate().after(t2.getDate())){
+                    return 1;
+                } else return -1;
+            }
+        });
         adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
         listView.setAdapter(adapter);
         Spinner spinner = view.findViewById(R.id.spinnerT);

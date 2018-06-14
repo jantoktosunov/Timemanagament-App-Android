@@ -14,6 +14,7 @@
         android:text=""
         android:textColor="@color/black"
         android:textSize="24sp"
+        android:elevation="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,6 +38,7 @@
         android:layout_height="48dp"
         android:layout_marginEnd="5dp"
         android:layout_marginTop="12dp"
+        android:elevation="5dp"
         app:layout_constraintEnd_toEndOf="@+id/quest1_txt_header"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_navigate_next_black_24dp" />
@@ -102,6 +104,7 @@
         android:layout_height="35dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="20dp"
+        android:elevation="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_close_black_24dp" />

@@ -10,9 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class QuestEndFragment extends Fragment {
+import java.io.Serializable;
+
+public class QuestEndFragment extends Fragment implements Serializable {
     private static final String QUEST_BASIC_FRAGMENT_KEY = "quest_basic_fragment_key";
-    private View questEndView;
+    private transient View questEndView;
     public static QuestEndFragment newInstance(QuestBasicFragment questBasicFragment) {
         QuestEndFragment questEndFragment = new QuestEndFragment();
         Bundle args = new Bundle();

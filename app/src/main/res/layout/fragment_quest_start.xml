@@ -11,6 +11,7 @@
         android:gravity="center"
         android:text="@string/Start_questionnaire"
         android:textColor="@color/black"
+        android:elevation="5dp"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,6 +36,7 @@
         android:layout_height="48dp"
         android:layout_marginEnd="5dp"
         android:layout_marginTop="12dp"
+        android:elevation="5dp"
         app:layout_constraintEnd_toEndOf="@+id/quest_txt_header"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_navigate_next_black_24dp" />

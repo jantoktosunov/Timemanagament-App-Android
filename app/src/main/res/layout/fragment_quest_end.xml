@@ -12,6 +12,7 @@
         android:gravity="center"
         android:text="@string/final_score"
         android:textColor="@color/black"
+        android:elevation="5dp"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,6 +26,7 @@
         android:layout_marginTop="36dp"
         android:text=""
         android:textSize="20sp"
+        android:textColor="@color/date_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quest_end_txt_header" />
 
@@ -59,6 +61,7 @@
         android:layout_marginTop="80dp"
         android:text=""
         android:textSize="20sp"
+        android:textColor="@color/date_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_quest_end_final_score" />
 
@@ -83,6 +86,7 @@
         android:layout_marginTop="40dp"
         android:text=""
         android:textSize="20sp"
+        android:textColor="@color/date_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_quest_end_factor1_score" />
 
@@ -105,6 +109,7 @@
         android:layout_marginTop="44dp"
         android:text=""
         android:textSize="20sp"
+        android:textColor="@color/date_color"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txt_quest_end_factor2_score" />
 
@@ -114,6 +119,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="14dp"
+        android:elevation="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_again_black_24dp" />
