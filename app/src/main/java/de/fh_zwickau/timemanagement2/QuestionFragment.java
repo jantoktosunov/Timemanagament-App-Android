@@ -72,7 +72,7 @@ public class QuestionFragment extends Fragment implements Serializable {
             public void onClick(View v) {
                 final AlertDialog.Builder endDialog = new AlertDialog.Builder(getActivity());
                 endDialog.setMessage("Do you really want to finish current Questionnaire?\n" +
-                        "All you data (Answers) will be deleted! ");
+                        "All you data (Answers) will be not saved! ");
 
                 endDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
