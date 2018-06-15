@@ -37,6 +37,7 @@ public class EditTaskFragment extends Fragment implements Serializable, DatePick
     private transient RadioButton uni_RBtn;
     private transient RadioButton nui_RBtn;
     private transient RadioButton nuni_RBtn;
+    private transient ImageView deleteImg;
     private Date oldTaskDate;
     private Date newTaskDate;
     private Urgency taskUrgency;
@@ -66,7 +67,7 @@ public class EditTaskFragment extends Fragment implements Serializable, DatePick
         uni_RBtn = view.findViewById(R.id.edit_rdb_uni);
         nui_RBtn = view.findViewById(R.id.edit_rdb_nui);
         nuni_RBtn = view.findViewById(R.id.edit_rdb_nuni);
-
+        deleteImg = view.findViewById(R.id.edit_img_delete);
         initOldValues();
         setOldValuesToViews();
 
@@ -106,6 +107,13 @@ public class EditTaskFragment extends Fragment implements Serializable, DatePick
             public void onClick(View v) {
                 containerFragment.removeEditAndShowHomeFragment(EditTaskFragment.this);
 
+            }
+        });
+        deleteImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.deleteTask(task);
+                containerFragment.removeEditAndShowHomeFragment(EditTaskFragment.this);
             }
         });
         return view;

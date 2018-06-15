@@ -92,6 +92,9 @@ public class MainActivity extends AppCompatActivity {
     public static void addTask(Task task){
         tasks.add(task);
     }
+    public static void deleteTask(Task task) {
+        tasks.remove(task);
+    }
     private void createTasks() {
         tasks.add(new Task("Android Project", new Date(), Urgency.UI));
         tasks.get(0).setDone(true);
