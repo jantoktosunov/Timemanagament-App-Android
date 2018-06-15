@@ -87,5 +87,6 @@ public class AddFragment extends Fragment implements Serializable, DatePickerDia
         String mon = calendar.getDisplayName(Calendar.MONTH, Calendar.SHORT, Locale.getDefault());
         dateText.setText(dayOfMonth + " " + mon);
         dateText.setTextColor(ContextCompat.getColor(getContext(), R.color.date_color));
+        doneImg.setImageResource(R.drawable.ic_done_black_24dp);
     }
 }
