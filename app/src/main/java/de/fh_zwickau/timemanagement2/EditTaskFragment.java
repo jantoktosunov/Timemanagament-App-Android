@@ -1,7 +1,9 @@
 package de.fh_zwickau.timemanagement2;
 
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.DialogFragment;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -50,6 +52,7 @@ public class EditTaskFragment extends Fragment implements Serializable, DatePick
         args.putSerializable(CONTAINER_FRAGMENT_KEY, containerFragment);
         editTaskFragment.setArguments(args);
         return editTaskFragment;
+        //TODO Delete button
     }
     @Nullable
     @Override
@@ -112,8 +115,27 @@ public class EditTaskFragment extends Fragment implements Serializable, DatePick
         deleteImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MainActivity.deleteTask(task);
-                containerFragment.removeEditAndShowHomeFragment(EditTaskFragment.this);
+                final AlertDialog.Builder deleteDialog = new AlertDialog.Builder(getActivity());
+                deleteDialog.setMessage("Do you really want to delete this task?");
+
+                deleteDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        MainActivity.deleteTask(task);
+                        containerFragment.removeEditAndShowHomeFragment(EditTaskFragment.this);
+                    }
+                });
+
+                deleteDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //deleteDialog.
+                    }
+                });
+                //deleteDialog.setNegativeButton(AlertDialog.BUTTON_NEGATIVE, "Cancel", new DialogInterface().onc)
+                deleteDialog.show();
+               // MainActivity.deleteTask(task);
+                //containerFragment.removeEditAndShowHomeFragment(EditTaskFragment.this);
             }
         });
         return view;
