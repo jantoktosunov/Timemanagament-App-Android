@@ -1,5 +1,7 @@
 package de.fh_zwickau.timemanagement2;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -68,8 +70,26 @@ public class QuestionFragment extends Fragment implements Serializable {
         imgViewClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                questBasicFragment.reset();
-                questBasicFragment.showFragment(0);
+                final AlertDialog.Builder endDialog = new AlertDialog.Builder(getActivity());
+                endDialog.setMessage("Do you really want to finish current Questionnaire?\n" +
+                        "All you data (Answers) will be deleted! ");
+
+                endDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        questBasicFragment.reset();
+                        questBasicFragment.showFragment(0);
+                    }
+                });
+
+                endDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //deleteDialog.
+                    }
+                });
+                endDialog.show();
+
             }
         });
         return questView;
