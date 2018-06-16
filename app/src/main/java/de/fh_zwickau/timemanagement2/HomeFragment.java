@@ -1,12 +1,10 @@
 package de.fh_zwickau.timemanagement2;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +19,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
-import java.util.Date;
 
 public class HomeFragment extends Fragment implements Serializable {
     //private static final Task[] tasks = {new Task("DO IT"), new Task("DO IT LATER!"),
@@ -51,6 +48,7 @@ public class HomeFragment extends Fragment implements Serializable {
     TaskAdapter adapterDone;
     TaskAdapter adapterFalse;
     String [] arrayTasks = {"All Tasks", "Completed Tasks", "Upcoming Tasks"};
+    boolean isSortUrg;
 
 
     @Nullable
@@ -135,7 +133,6 @@ public class HomeFragment extends Fragment implements Serializable {
         imgSort.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //AlertDialog sortDialog = new AlertDialog.Builder(getActivity()).create();
                 AlertDialog.Builder sortDialog = new AlertDialog.Builder(getActivity());
                 String sortString [] = {"Date", "Urgency"};
                 sortDialog.setTitle("Sort");
@@ -148,42 +145,58 @@ public class HomeFragment extends Fragment implements Serializable {
                             } else if(listView.getAdapter().equals(adapterFalse)){
                                 tasks = upcomingTasks;
                             }
-                            Collections.sort(tasks, new Comparator<Task>() {
-                                @Override
-                                public int compare(Task t1, Task t2) {
-                                    if(t1.getDate().after(t2.getDate())) {
-                                        return 1;
-                                    } else return -1;
-                                }
-                            });
+                            isSortUrg = false;
 
-                            adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
-                            listView.setAdapter(adapter);
                             } else if (which == 1) {
                                 if(listView.getAdapter().equals(adapterDone)) {
                                     tasks = doneTasks;
                                 } else if(listView.getAdapter().equals(adapterFalse)) {
                                     tasks = upcomingTasks;
                                 }
-                                Collections.sort(tasks, new UrgencyComparator());
-                                adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
-                                listView.setAdapter(adapter);
+                                isSortUrg = true;
 
                         }
                     }
                 });
+                sortDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        sort();
+                    }
+                });
+                sortDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //close sortDialog
+                    }
+                });
                 sortDialog.show();
-                //alertDialog.setMessage("Alert message to be shown");
-                /*sortDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.dismiss();
-                            }
-                        });
-                sortDialog.show();*/
+
             }
         });
         return view;
+    }
+
+    /**
+     * Sorting by Urgency/Date.
+     */
+    public void sort(){
+        if(isSortUrg == false){
+            Collections.sort(tasks, new Comparator<Task>() {
+                @Override
+                public int compare(Task t1, Task t2) {
+                    if(t1.getDate().after(t2.getDate())) {
+                        return 1;
+                    } else return -1;
+                }
+            });
+
+        } else {
+            Collections.sort(tasks, new UrgencyComparator());
+        }
+
+        adapter = new TaskAdapter(tasks, getActivity().getApplicationContext());
+        listView.setAdapter(adapter);
     }
 
 }
