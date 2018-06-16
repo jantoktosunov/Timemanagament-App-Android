@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,8 +72,18 @@ public class QuestionFragment extends Fragment implements Serializable {
             @Override
             public void onClick(View v) {
                 final AlertDialog.Builder endDialog = new AlertDialog.Builder(getActivity());
-                endDialog.setMessage("Do you really want to finish current Questionnaire?\n" +
-                        "All you data (Answers) will be not saved! ");
+                //endDialog.setMessage("Do you really want to finish current Questionnaire?\n" +
+                //        "All you data (Answers) will be not saved! ");
+                TextView msg = new TextView(getActivity());
+                msg.setText("Do you really want to finish current Questionnaire?\n" +
+                                "All you data (Answers) will be not saved!");
+                msg.setTextSize(18);
+                msg.setPadding(20, 60, 20, 40);
+                msg.setTextColor(getActivity().getResources().getColor(R.color.black));
+                msg.setGravity(Gravity.CENTER_HORIZONTAL);
+                msg.setGravity(Gravity.CENTER);
+
+                endDialog.setView(msg);
 
                 endDialog.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     @Override
@@ -85,7 +96,7 @@ public class QuestionFragment extends Fragment implements Serializable {
                 endDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //deleteDialog.
+                        //close imgViewClose
                     }
                 });
                 endDialog.show();
